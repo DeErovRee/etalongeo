@@ -19,6 +19,7 @@ export const MainSection2 = () => {
                 }}
             >
                 <Typography
+                    id="services"
                     variant="h2"
                     component="h2"
                     sx={{

@@ -1,6 +1,8 @@
 import { MainSection1 } from "@/components/MainPage/mainSection1";
 import { MainSection2 } from "@/components/MainPage/mainSection2";
 import { MainSection3 } from "@/components/MainPage/mainSection3";
+import { MainSection4 } from "@/components/MainPage/mainSection4";
+import { MainSection5 } from "@/components/MainPage/mainSection5";
 
 export default function Home() {
     return (
@@ -8,6 +10,8 @@ export default function Home() {
             <MainSection1 />
             <MainSection2 />
             <MainSection3 />
+            <MainSection4 />
+            <MainSection5 />
         </main>
     );
 }

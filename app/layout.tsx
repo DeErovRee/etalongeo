@@ -3,7 +3,8 @@ import Image from "next/image";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
-import bgImage from "../public/DSC00058.jpg";
+import bgImage from "../public/bg1.jpg";
+import { Footer } from "@/components/footer";
 
 const inter = Montserrat({ subsets: ["latin"] });
 
@@ -35,6 +36,7 @@ export default function RootLayout({
                 />
                 <Header />
                 {children}
+                <Footer />
             </body>
         </html>
     );

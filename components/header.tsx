@@ -146,6 +146,7 @@ export const Header = () => {
                     >
                         {pages.map((page) => (
                             <Link
+                                key={page.en}
                                 href={page.html}
                                 style={{ textDecoration: "none" }}
                             >

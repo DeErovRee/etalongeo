@@ -4,7 +4,7 @@ import { MainSection3 } from "@/components/MainPage/mainSection3";
 import { MainSection4 } from "@/components/MainPage/mainSection4";
 import { MainSection5 } from "@/components/MainPage/mainSection5";
 
-export default function Home() {
+export default async function Home() {
     return (
         <main>
             <MainSection1 />

@@ -4,7 +4,13 @@ const nextConfig = {
     swcMinify: true,
     compiler: {
         styledComponents: true,
-    }
-}
+    },
+    experimental: {
+        serverActions: true,
+    },
+    images: {
+        domains: ["127.0.0.1", "localhost"],
+    },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

@@ -1,19 +1,11 @@
 import { Container, Typography } from "@mui/material";
 import { ServiceCard } from "./serviceCard";
-import Link from "next/link";
+import { getData } from "@/utils/getData";
 
 const APIurl = "http://127.0.0.1:1337";
 
-async function getData() {
-    const res = await fetch(
-        `${APIurl}/api/newses?pagination[page]=1&pagination[pageSize]=4&populate=*`
-    );
-
-    return res.json();
-}
-
 export async function MainSection4() {
-    const news = await getData();
+    const news = await getData("newses", 4, 1, "date", ":desc");
     return (
         <Container
             maxWidth={false}
@@ -53,6 +45,7 @@ export async function MainSection4() {
                 {news.data.map((el: any) => {
                     return (
                         <ServiceCard
+                            endpoint="blog"
                             id={el.id}
                             title={el.attributes.title}
                             description={el.attributes.text}

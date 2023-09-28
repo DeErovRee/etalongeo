@@ -56,6 +56,7 @@ export const MainSection2 = () => {
             </Container>
             <Container sx={{ display: "flex", flexDirection: "row" }}>
                 <ServiceCard
+                    endpoint="services"
                     title="Технические планы"
                     description="Технический план на жилой дом
                         Технический план на объект
@@ -66,8 +67,10 @@ export const MainSection2 = () => {
                         Технический план многоквартирного
                         дома"
                     img={require("../../public/techplan3D.jpg")}
+                    id={1}
                 />
                 <ServiceCard
+                    endpoint="services"
                     title="Межевание"
                     description="При образовании, разделе,
                         объединении или перераспределении
@@ -77,8 +80,10 @@ export const MainSection2 = () => {
                         При выделе земельной доли из общей
                         долевой собственности"
                     img={require("../../public/techplan3D.jpg")}
+                    id={2}
                 />
                 <ServiceCard
+                    endpoint="services"
                     title="Кадастровые работы"
                     description="Изготовление схемы расположения
                         территории на кадастровом плане.
@@ -88,14 +93,17 @@ export const MainSection2 = () => {
                         Предоставление кадастровой выписки
                         об объекте"
                     img={require("../../public/techplan3D.jpg")}
+                    id={3}
                 />
                 <ServiceCard
+                    endpoint="services"
                     title="Вынос границ"
                     description="Для установления границ земельного
                         участка в натуру. Для выноса пятна
                         застройки на участок под новое
                         строительство"
                     img={require("../../public/techplan3D.jpg")}
+                    id={4}
                 />
             </Container>
         </Container>

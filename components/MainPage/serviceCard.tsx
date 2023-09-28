@@ -4,7 +4,6 @@ import { Card } from "@mui/material";
 import Image from "next/image";
 import { Typography } from "@mui/material";
 import "./style.css";
-import { myLoader } from "../../utils/loader";
 import Link from "next/link";
 
 export const ServiceCard = ({
@@ -12,29 +11,36 @@ export const ServiceCard = ({
     description,
     img,
     id,
+    endpoint,
 }: {
     title: string;
     description: string;
     img: string;
     id: number;
+    endpoint: string;
 }) => {
+    const regexp = /^\!\[[A-Za-z0-9\W_]*\]\([A-Za-z0-9\W_]*\)$/gim;
+
     return (
         <Card
             variant="outlined"
             sx={{
                 maxWidth: "300px",
                 width: "100%",
-                padding: "15px",
                 margin: "10px 5px",
                 boxSizing: "border-box",
+                height: "576px",
             }}
         >
             <Link
-                href={`/blog/${id}`}
+                href={`/${endpoint}/${id}`}
                 style={{
                     textDecoration: "none",
                     color: "inherit",
                     display: "flex",
+                    padding: "15px",
+                    boxSizing: "border-box",
+                    height: "100%",
                     flexDirection: "column",
                     alignItems: "center",
                 }}
@@ -90,10 +96,12 @@ export const ServiceCard = ({
                         color: "black",
                         textDecoration: "none",
                         mt: "20px",
-                        lineClamp: "3",
                     }}
                 >
-                    {description.substring(0, 200) + `...`}
+                    {description.replace(regexp, "").length > 380
+                        ? description.replace(regexp, "").substring(0, 380) +
+                          "..."
+                        : description.replace(regexp, "")}
                 </Typography>
             </Link>
         </Card>

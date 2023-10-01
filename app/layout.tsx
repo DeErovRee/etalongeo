@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import bgImage from "../public/bg1.jpg";
 import { Footer } from "@/components/footer";
+import Head from "next/head";
 
 const inter = Montserrat({ subsets: ["latin"] });
 
@@ -20,6 +21,9 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
+            <Head>
+                {/* <script src="//code.jivo.ru/widget/spZbhZ8Ytu" async></script> */}
+            </Head>
             <body
                 className={inter.className}
                 style={{

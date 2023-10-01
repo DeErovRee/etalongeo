@@ -22,7 +22,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <Head>
-                {/* <script src="//code.jivo.ru/widget/spZbhZ8Ytu" async></script> */}
+                <script src="//code.jivo.ru/widget/spZbhZ8Ytu" async></script>
             </Head>
             <body
                 className={inter.className}

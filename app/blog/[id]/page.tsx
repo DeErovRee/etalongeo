@@ -1,5 +1,15 @@
-import { getDataSome } from "@/utils/getDataSome";
+import { apiURL } from "@/utils/urlAPI";
 import { Container } from "@mui/material";
+
+async function getData(id: string) {
+    const res = await fetch(`${apiURL}/newses/${id}`, {
+        next: {
+            revalidate: 600,
+        },
+    });
+
+    return res.json();
+}
 
 type Props = {
     params: {
@@ -8,7 +18,7 @@ type Props = {
 };
 
 export default async function Post({ params: { id } }: Props) {
-    const post = await getDataSome(id);
+    const post = await getData(id);
     return (
         <Container
             maxWidth={false}

@@ -1,7 +1,7 @@
 import { apiURL } from "@/utils/urlAPI";
 import { Container } from "@mui/material";
 
-export async function getData(id: string) {
+const getData = async (id: string) => {
     const res = await fetch(`${apiURL}/newses/${id}`, {
         next: {
             revalidate: 600,
@@ -9,7 +9,7 @@ export async function getData(id: string) {
     });
 
     return res.json();
-}
+};
 
 type Props = {
     params: {

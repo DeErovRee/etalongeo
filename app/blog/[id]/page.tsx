@@ -2,7 +2,11 @@ import { apiURL } from "@/utils/urlAPI";
 import { Container } from "@mui/material";
 
 export async function getData(id: string) {
-    const res = await fetch(`${apiURL}/newses/${id}`);
+    const res = await fetch(`${apiURL}/newses/${id}`, {
+        next: {
+            revalidate: 600,
+        },
+    });
 
     return res.json();
 }

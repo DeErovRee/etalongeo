@@ -2,7 +2,7 @@ import { Container, Typography } from "@mui/material";
 import { ServiceCard } from "./serviceCard";
 import { getData } from "@/utils/getData";
 
-const APIurl = "http://127.0.0.1:1337";
+const APIurl = "http://31.129.108.132:1337";
 
 export async function MainSection4() {
     const news = await getData("newses", 4, 1, "date", ":desc");

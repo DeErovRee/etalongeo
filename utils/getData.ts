@@ -7,13 +7,13 @@ export async function getData(
     sortName: string,
     sortDir: string
 ) {
-    const res: any = await fetch(
-        `${apiURL}/${endpoint}?pagination[pageSize]=${pageSize}&pagination[page]=${pageCount}&sort=${sortName}${sortDir}&populate=*`
-        // {
-        //     next: {
-        //         revalidate: 60,
-        //     },
-        // }
+    const res = await fetch(
+        `${apiURL}/${endpoint}?pagination[pageSize]=${pageSize}&pagination[page]=${pageCount}&sort=${sortName}${sortDir}&populate=*`,
+        {
+            next: {
+                revalidate: 60,
+            },
+        }
     );
 
     return res.json();

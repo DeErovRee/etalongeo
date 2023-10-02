@@ -2,10 +2,33 @@ import { ServiceCard } from "@/components/MainPage/serviceCard";
 import { getData } from "@/utils/getData";
 import { Box, Container, Typography } from "@mui/material";
 
-const apiURL = "http://127.0.0.1:1337";
+const apiURL: string = "http://31.129.108.132:1337";
+
+interface Newses {
+    data: Array<News>;
+}
+
+type News = {
+    id: number;
+    attributes: {
+        title: string;
+        text: string;
+        poster: {
+            data: {
+                attributes: {
+                    formats: {
+                        thumbnail: {
+                            url: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+};
 
 export default async function Services() {
-    const news: any = await getData("services", 10, 1, "date", ":desc");
+    const news: Newses = await getData("services", 10, 1, "date", ":desc");
     return (
         <Container>
             <Typography
@@ -27,7 +50,7 @@ export default async function Services() {
                     flexWrap: "wrap",
                 }}
             >
-                {news.data.map((el: any) => {
+                {news.data.map((el: News) => {
                     return (
                         <ServiceCard
                             endpoint="blog"

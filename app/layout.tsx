@@ -5,7 +5,6 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import bgImage from "../public/bg1.jpg";
 import { Footer } from "@/components/footer";
-import Head from "next/head";
 import Script from "next/script";
 
 const inter = Montserrat({ subsets: ["latin"] });

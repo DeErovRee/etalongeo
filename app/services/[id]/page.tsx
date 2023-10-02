@@ -1,7 +1,7 @@
-import { apiURL } from "@/utils/urlAPI";
+import { apiURL } from "@/utils/URL";
 import { Container } from "@mui/material";
 
-export async function getData(id: string) {
+async function getData(id: string) {
     const res = await fetch(`${apiURL}/services/${id}`);
 
     return res.json();

@@ -1,4 +1,4 @@
-import { apiURL } from "@/utils/urlAPI";
+import { apiURL } from "@/utils/URL";
 import { Container } from "@mui/material";
 
 async function getData(id: string) {

@@ -1,4 +1,5 @@
-import { apiURL } from "./urlAPI";
+import { Newses } from "@/app/services/page";
+import { apiURL } from "./URL";
 
 export async function getData(
     endpoint: string,
@@ -6,7 +7,7 @@ export async function getData(
     pageCount: number,
     sortName: string,
     sortDir: string
-) {
+): Promise<Newses> {
     const res = await fetch(
         `${apiURL}/${endpoint}?pagination[pageSize]=${pageSize}&pagination[page]=${pageCount}&sort=${sortName}${sortDir}&populate=*`,
         {

@@ -1,14 +1,13 @@
 import { ServiceCard } from "@/components/MainPage/serviceCard";
+import { URL } from "@/utils/URL";
 import { getData } from "@/utils/getData";
 import { Box, Container, Typography } from "@mui/material";
 
-const apiURL: string = "http://31.129.108.132:1337";
-
-interface Newses {
+export interface Newses {
     data: Array<News>;
 }
 
-type News = {
+export type News = {
     id: number;
     attributes: {
         title: string;
@@ -58,7 +57,7 @@ export default async function Services() {
                             title={el.attributes.title}
                             description={el.attributes.text}
                             img={
-                                apiURL +
+                                URL +
                                 el.attributes.poster.data.attributes.formats
                                     .thumbnail.url
                             }

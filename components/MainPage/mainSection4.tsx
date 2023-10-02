@@ -1,11 +1,11 @@
 import { Container, Typography } from "@mui/material";
 import { ServiceCard } from "./serviceCard";
 import { getData } from "@/utils/getData";
-
-const APIurl = "http://31.129.108.132:1337";
+import { News, Newses } from "@/app/services/page";
+import { URL } from "@/utils/URL";
 
 export async function MainSection4() {
-    const news = await getData("newses", 4, 1, "date", ":desc");
+    const news: Newses = await getData("newses", 4, 1, "date", ":desc");
     return (
         <Container
             maxWidth={false}
@@ -42,7 +42,7 @@ export async function MainSection4() {
                     mb: "117px",
                 }}
             >
-                {news.data.map((el: any) => {
+                {news.data.map((el: News) => {
                     return (
                         <ServiceCard
                             endpoint="blog"
@@ -50,7 +50,7 @@ export async function MainSection4() {
                             title={el.attributes.title}
                             description={el.attributes.text}
                             img={
-                                APIurl +
+                                URL +
                                 el.attributes.poster.data.attributes.formats
                                     .thumbnail.url
                             }

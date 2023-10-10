@@ -1,12 +1,40 @@
 "use client";
 
+import { LocalhostAPIurl as apiURL, LocalhostURL as URL } from "@/utils/URL";
 import { Container, Typography, Box, Button, TextField } from "@mui/material";
+import { useState } from "react";
+
+type Data = {
+    attributes: {
+        url: string;
+    };
+};
+
+type Response = {
+    data: {
+        attributes: {
+            documents: {
+                data: Data[];
+            };
+        };
+    };
+};
 
 export default function Docs() {
+    const [docs, setDocs] = useState<Response>();
     const getDate = async (e: any) => {
         e.preventDefault();
-        console.log(e.target["phone"].value);
-        console.log(e.target["order"].value);
+        const phone = e.target["phone"].value;
+        const order = e.target["order"].value;
+
+        fetch(`${apiURL}/documents/${order}?populate=documents`)
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                setDocs(data);
+                console.log(data);
+            });
     };
 
     return (
@@ -45,11 +73,11 @@ export default function Docs() {
                     autoComplete="off"
                     onSubmit={(e) => getDate(e)}
                 >
-                    <TextField
+                    {/* <TextField
                         id="phone"
                         label="Ваш номер телефона"
                         variant="outlined"
-                    />
+                    /> */}
                     <TextField
                         id="order"
                         label="Ваш номер заказа"
@@ -73,6 +101,16 @@ export default function Docs() {
                         </Typography>
                     </Button>
                 </Box>
+
+                {docs && (
+                    <a
+                        href={`${URL}${docs.data.attributes.documents.data[0].attributes.url}`}
+                        target="_blank"
+                        download="etalongeo"
+                    >
+                        Скачать файл!
+                    </a>
+                )}
             </Container>
         </Container>
     );

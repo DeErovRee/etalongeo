@@ -34,6 +34,11 @@ const pages = [
         en: "Our blog",
         ru: "Наш блог",
     },
+    {
+        html: "/docs",
+        en: "Docs",
+        ru: "Документы",
+    },
 ];
 
 export const Header = () => {

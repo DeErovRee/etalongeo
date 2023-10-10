@@ -2,7 +2,7 @@ import { Container, Typography } from "@mui/material";
 import { ServiceCard } from "./serviceCard";
 import { getData } from "@/utils/getData";
 import { News, Newses } from "@/app/services/page";
-import { URL } from "@/utils/URL";
+import { LocalhostURL as URL } from "@/utils/URL";
 
 export async function MainSection4() {
     const news: Newses = await getData("newses", 4, 1, "date", ":desc");

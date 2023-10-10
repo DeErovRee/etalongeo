@@ -2,7 +2,7 @@ import { ServiceCard } from "@/components/MainPage/serviceCard";
 import { getData } from "@/utils/getData";
 import { Box, Container, Typography } from "@mui/material";
 import { News, Newses } from "../services/page";
-import { URL } from "@/utils/URL";
+import { LocalhostURL as URL } from "@/utils/URL";
 
 export default async function Services() {
     const news: Newses = await getData("newses", 10, 1, "date", ":desc");

@@ -1,5 +1,5 @@
 import { ServiceCard } from "@/components/MainPage/serviceCard";
-import { URL } from "@/utils/URL";
+import { LocalhostURL as URL } from "@/utils/URL";
 import { getData } from "@/utils/getData";
 import { Box, Container, Typography } from "@mui/material";
 

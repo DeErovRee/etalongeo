@@ -1,5 +1,5 @@
 import { Newses } from "@/app/services/page";
-import { apiURL } from "./URL";
+import { LocalhostAPIurl as apiURL } from "./URL";
 
 export async function getData(
     endpoint: string,

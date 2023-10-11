@@ -1,5 +1,6 @@
 "use client";
 
+import { IconFile } from "@/components/DocsPage/iconFileGenerator";
 import { LocalhostAPIurl as apiURL, LocalhostURL as URL } from "@/utils/URL";
 import { Container, Typography, Box, Button, TextField } from "@mui/material";
 import { useState } from "react";
@@ -7,23 +8,20 @@ import { useState } from "react";
 type Data = {
     attributes: {
         url: string;
+        ext: string;
+        name: string;
+        hash: string;
     };
 };
 
-type Response = {
-    data: {
-        attributes: {
-            documents: {
-                data: Data[];
-            };
-        };
-    };
-};
+type Response = Data[];
 
 export default function Docs() {
-    const [docs, setDocs] = useState<Response>();
+    const [docs, setDocs] = useState<Response | null>(null);
+
     const getDate = async (e: any) => {
         e.preventDefault();
+        setDocs(null);
         const phone = e.target["phone"].value;
         const order = e.target["order"].value;
 
@@ -32,10 +30,15 @@ export default function Docs() {
                 return response.json();
             })
             .then((data) => {
-                setDocs(data);
-                console.log(data);
+                if (phone === data.data.attributes.phone) {
+                    setDocs(data.data.attributes.documents.data);
+                    return;
+                }
+                console.log("Введены неверные данные");
             });
     };
+
+    console.log(docs);
 
     return (
         <Container
@@ -49,6 +52,7 @@ export default function Docs() {
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
+                    marginBottom: "75px",
                 }}
             >
                 <Box
@@ -73,11 +77,11 @@ export default function Docs() {
                     autoComplete="off"
                     onSubmit={(e) => getDate(e)}
                 >
-                    {/* <TextField
+                    <TextField
                         id="phone"
                         label="Ваш номер телефона"
                         variant="outlined"
-                    /> */}
+                    />
                     <TextField
                         id="order"
                         label="Ваш номер заказа"
@@ -101,16 +105,24 @@ export default function Docs() {
                         </Typography>
                     </Button>
                 </Box>
-
-                {docs && (
-                    <a
-                        href={`${URL}${docs.data.attributes.documents.data[0].attributes.url}`}
-                        target="_blank"
-                        download="etalongeo"
-                    >
-                        Скачать файл!
-                    </a>
-                )}
+                <Container
+                    sx={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        flexWrap: "wrap",
+                    }}
+                >
+                    {docs &&
+                        docs.map((el) => (
+                            <IconFile
+                                key={el.attributes.hash}
+                                url={`${URL}${el.attributes.url}`}
+                                ext={`${el.attributes.ext}`}
+                                title={`${el.attributes.name}`}
+                            />
+                        ))}
+                </Container>
             </Container>
         </Container>
     );

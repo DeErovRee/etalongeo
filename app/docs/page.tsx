@@ -1,11 +1,13 @@
 "use client";
 
+import { FileLoader } from "@/components/DocsPage/fileLoader";
 import { IconFile } from "@/components/DocsPage/iconFileGenerator";
 import { LocalhostAPIurl as apiURL, LocalhostURL as URL } from "@/utils/URL";
 import { Container, Typography, Box, Button, TextField } from "@mui/material";
 import { useState } from "react";
 
-type Data = {
+export type Data = {
+    id: string;
     attributes: {
         url: string;
         ext: string;
@@ -14,31 +16,34 @@ type Data = {
     };
 };
 
-type Response = Data[];
+export type Response = Data[];
 
 export default function Docs() {
     const [docs, setDocs] = useState<Response | null>(null);
+    const [error, setError] = useState<Boolean>(false);
 
     const getDate = async (e: any) => {
         e.preventDefault();
+        setError(false);
         setDocs(null);
         const phone = e.target["phone"].value;
         const order = e.target["order"].value;
 
         fetch(`${apiURL}/documents/${order}?populate=documents`)
-            .then((response) => {
-                return response.json();
+            .then((res) => {
+                if (!res.ok) {
+                    Promise.reject(res);
+                    setError(true);
+                }
+                return res.json();
             })
             .then((data) => {
-                if (phone === data.data.attributes.phone) {
+                if (data && phone === data.data?.attributes.phone) {
                     setDocs(data.data.attributes.documents.data);
                     return;
                 }
-                console.log("Введены неверные данные");
             });
     };
-
-    console.log(docs);
 
     return (
         <Container
@@ -105,25 +110,40 @@ export default function Docs() {
                             Получить
                         </Typography>
                     </Button>
+                    {error === true && (
+                        <p style={{ color: "red" }}>
+                            ошибка при получении данных
+                        </p>
+                    )}
                 </Box>
-                <Container
-                    sx={{
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        flexWrap: "wrap",
-                    }}
-                >
-                    {docs &&
-                        docs.map((el) => (
-                            <IconFile
-                                key={el.attributes.hash}
-                                url={`${URL}${el.attributes.url}`}
-                                ext={`${el.attributes.ext}`}
-                                title={`${el.attributes.name}`}
-                            />
-                        ))}
-                </Container>
+                {docs && (
+                    <Container
+                        sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                        }}
+                    >
+                        <Box
+                            sx={{
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                flexWrap: "wrap",
+                            }}
+                        >
+                            {docs.map((el) => (
+                                <IconFile
+                                    key={el.id}
+                                    url={`${URL}${el.attributes.url}`}
+                                    ext={`${el.attributes.ext}`}
+                                    title={`${el.attributes.name}`}
+                                />
+                            ))}
+                        </Box>
+                        <FileLoader docs={docs} />
+                    </Container>
+                )}
             </Container>
         </Container>
     );

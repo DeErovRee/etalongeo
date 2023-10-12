@@ -30,6 +30,7 @@ export default async function Services() {
                 {news.data.map((el: News) => {
                     return (
                         <ServiceCard
+                            key={el.id}
                             endpoint="blog"
                             id={el.id}
                             title={el.attributes.title}

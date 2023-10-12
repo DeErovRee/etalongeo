@@ -1,5 +1,9 @@
 import { Container, Typography } from "@mui/material";
 import Image from "next/image";
+import certificate1 from "@/public/certificate1.jpg";
+import certificate2 from "@/public/certificate2.jpg";
+import certificate3 from "@/public/certificate3.jpg";
+import certificate4 from "@/public/certificate4.jpg";
 
 export const MainSection3 = () => {
     return (
@@ -40,7 +44,7 @@ export const MainSection3 = () => {
             >
                 <Image
                     alt="Sattelite Photo"
-                    src={require("/public/certificate1.jpg")}
+                    src={certificate1}
                     height={300}
                     quality={100}
                     style={{
@@ -50,7 +54,7 @@ export const MainSection3 = () => {
                 />
                 <Image
                     alt="Sattelite Photo"
-                    src={require("/public/certificate2.jpg")}
+                    src={certificate2}
                     height={300}
                     quality={100}
                     style={{
@@ -60,7 +64,7 @@ export const MainSection3 = () => {
                 />
                 <Image
                     alt="Sattelite Photo"
-                    src={require("/public/certificate3.jpg")}
+                    src={certificate3}
                     height={300}
                     quality={100}
                     style={{
@@ -70,7 +74,7 @@ export const MainSection3 = () => {
                 />
                 <Image
                     alt="Sattelite Photo"
-                    src={require("/public/certificate4.jpg")}
+                    src={certificate4}
                     height={300}
                     quality={100}
                     style={{

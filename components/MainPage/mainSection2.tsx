@@ -35,7 +35,7 @@ export const MainSection2 = async () => {
         "title",
         ":desc"
     );
-    console.log(services);
+
     return (
         <Container
             maxWidth={false}
@@ -96,6 +96,7 @@ export const MainSection2 = async () => {
                 {services.data.map((el: Service) => {
                     return (
                         <ServiceCard
+                            key={el.id}
                             endpoint="services"
                             title={el.attributes.title}
                             description={el.attributes.text}

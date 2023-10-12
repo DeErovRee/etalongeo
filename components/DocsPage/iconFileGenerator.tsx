@@ -46,9 +46,12 @@ export const IconFile: React.FC<Props> = ({ ext, title, url }) => {
             backgroundColor = "rgb(191,57,26)";
             break;
     }
-    console.log(ext);
+
     return (
         <a
+            data-name={`${title}`}
+            data-ext={`${ext}`}
+            className="fileDownload"
             href={url}
             target="_blank"
             download

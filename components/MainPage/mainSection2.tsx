@@ -1,7 +1,41 @@
-import { Container, Typography } from "@mui/material";
+import { Container, Typography, Button } from "@mui/material";
 import { ServiceCard } from "./serviceCard";
+import { getData } from "@/utils/getData";
+import { LocalhostURL as URL } from "@/utils/URL";
+import Link from "next/link";
 
-export const MainSection2 = () => {
+export interface Services {
+    data: Array<Service>;
+}
+
+export type Service = {
+    id: number;
+    attributes: {
+        title: string;
+        text: string;
+        poster: {
+            data: {
+                attributes: {
+                    formats: {
+                        thumbnail: {
+                            url: string;
+                        };
+                    };
+                };
+            };
+        };
+    };
+};
+
+export const MainSection2 = async () => {
+    const services: Services = await getData(
+        "services",
+        4,
+        1,
+        "title",
+        ":desc"
+    );
+    console.log(services);
     return (
         <Container
             maxWidth={false}
@@ -9,6 +43,10 @@ export const MainSection2 = () => {
                 p: "0",
                 backgroundColor: "white",
                 width: "100%",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                alignContent: "center",
             }}
         >
             <Container
@@ -34,7 +72,7 @@ export const MainSection2 = () => {
                         textDecoration: "none",
                     }}
                 >
-                    Наши услуги
+                    Популярный услуги
                 </Typography>
                 <Typography
                     variant="h5"
@@ -55,57 +93,38 @@ export const MainSection2 = () => {
                 </Typography>
             </Container>
             <Container sx={{ display: "flex", flexDirection: "row" }}>
-                <ServiceCard
-                    endpoint="services"
-                    title="Технические планы"
-                    description="Технический план на жилой дом
-                        Технический план на объект
-                        незавершенного строительства
-                        Технический план нежилого
-                        помещения, части помещения
-                        Технический план сооружения
-                        Технический план многоквартирного
-                        дома"
-                    img={require("../../public/techplan3D.jpg")}
-                    id={1}
-                />
-                <ServiceCard
-                    endpoint="services"
-                    title="Межевание"
-                    description="При образовании, разделе,
-                        объединении или перераспределении
-                        земельного участка. Для уточнения
-                        границ земельного участка. Для
-                        исправления кадастровой ошибки.
-                        При выделе земельной доли из общей
-                        долевой собственности"
-                    img={require("../../public/techplan3D.jpg")}
-                    id={2}
-                />
-                <ServiceCard
-                    endpoint="services"
-                    title="Кадастровые работы"
-                    description="Изготовление схемы расположения
-                        территории на кадастровом плане.
-                        Заключение кадастрового инженера.
-                        Изготовление кадастрового паспорта
-                        на объект недвижимости.
-                        Предоставление кадастровой выписки
-                        об объекте"
-                    img={require("../../public/techplan3D.jpg")}
-                    id={3}
-                />
-                <ServiceCard
-                    endpoint="services"
-                    title="Вынос границ"
-                    description="Для установления границ земельного
-                        участка в натуру. Для выноса пятна
-                        застройки на участок под новое
-                        строительство"
-                    img={require("../../public/techplan3D.jpg")}
-                    id={4}
-                />
+                {services.data.map((el: Service) => {
+                    return (
+                        <ServiceCard
+                            endpoint="services"
+                            title={el.attributes.title}
+                            description={el.attributes.text}
+                            img={
+                                URL +
+                                el.attributes.poster.data.attributes.formats
+                                    .thumbnail.url
+                            }
+                            id={2}
+                        />
+                    );
+                })}
             </Container>
+            <Button
+                variant="contained"
+                sx={{
+                    mb: "117px",
+                }}
+            >
+                <Link
+                    href={"./services"}
+                    style={{
+                        textDecoration: "none",
+                        color: "inherit",
+                    }}
+                >
+                    Все услуги
+                </Link>
+            </Button>
         </Container>
     );
 };

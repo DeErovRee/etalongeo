@@ -26,10 +26,9 @@ export const ServiceCard = ({
             variant="outlined"
             sx={{
                 maxWidth: "300px",
-                width: "100%",
+                width: "278px",
                 margin: "10px 5px",
                 boxSizing: "border-box",
-                height: "576px",
             }}
         >
             <Link

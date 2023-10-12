@@ -1,3 +1,4 @@
+import { Service, Services } from "@/components/MainPage/mainSection2";
 import { ServiceCard } from "@/components/MainPage/serviceCard";
 import { LocalhostURL as URL } from "@/utils/URL";
 import { getData } from "@/utils/getData";
@@ -27,7 +28,13 @@ export type News = {
 };
 
 export default async function Services() {
-    const news: Newses = await getData("services", 10, 1, "date", ":desc");
+    const services: Services = await getData(
+        "services",
+        10,
+        1,
+        "title",
+        ":desc"
+    );
     return (
         <Container>
             <Typography
@@ -49,7 +56,7 @@ export default async function Services() {
                     flexWrap: "wrap",
                 }}
             >
-                {news.data.map((el: News) => {
+                {services.data.map((el: Service) => {
                     return (
                         <ServiceCard
                             endpoint="blog"

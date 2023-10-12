@@ -1,8 +1,9 @@
-import { Container, Typography } from "@mui/material";
+import { Container, Typography, Button } from "@mui/material";
 import { ServiceCard } from "./serviceCard";
 import { getData } from "@/utils/getData";
 import { News, Newses } from "@/app/services/page";
 import { LocalhostURL as URL } from "@/utils/URL";
+import Link from "next/link";
 
 export async function MainSection4() {
     const news: Newses = await getData("newses", 4, 1, "date", ":desc");
@@ -39,7 +40,6 @@ export async function MainSection4() {
                 sx={{
                     display: "flex",
                     flexDirection: "row",
-                    mb: "117px",
                 }}
             >
                 {news.data.map((el: News) => {
@@ -58,6 +58,22 @@ export async function MainSection4() {
                     );
                 })}
             </Container>
+            <Button
+                variant="contained"
+                sx={{
+                    mb: "117px",
+                }}
+            >
+                <Link
+                    href={"./blog"}
+                    style={{
+                        textDecoration: "none",
+                        color: "inherit",
+                    }}
+                >
+                    Все новости
+                </Link>
+            </Button>
         </Container>
     );
 }

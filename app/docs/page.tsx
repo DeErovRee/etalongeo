@@ -45,6 +45,7 @@ export default function Docs() {
             maxWidth={false}
             sx={{
                 backgroundColor: "white",
+                height: "100%",
             }}
         >
             <Container

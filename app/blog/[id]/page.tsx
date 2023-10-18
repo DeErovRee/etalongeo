@@ -1,14 +1,12 @@
-import { LocalhostAPIurl as apiURL } from "@/utils/URL";
 import { Container } from "@mui/material";
+import { getDataPost } from "@/utils/getDataEntry";
 
-async function getData(id: string) {
-    const res = await fetch(`${apiURL}/newses/${id}`, {
-        next: {
-            revalidate: 600,
-        },
-    });
+export async function generateMetadata({ params: { id } }: Props) {
+    const post = await getDataPost(id, "newses");
 
-    return res.json();
+    return {
+        title: post.data.attributes.title,
+    };
 }
 
 type Props = {
@@ -18,7 +16,8 @@ type Props = {
 };
 
 export default async function Post({ params: { id } }: Props) {
-    const post = await getData(id);
+    const post = await getDataPost(id, "newses");
+
     return (
         <Container
             maxWidth={false}

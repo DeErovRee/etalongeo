@@ -6,12 +6,27 @@ import { Montserrat } from "next/font/google";
 import bgImage from "../public/bg1.jpg";
 import { Footer } from "@/components/footer";
 import Script from "next/script";
+import { LocalhostURL as URL } from "@/utils/URL";
 
 const inter = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
     title: "ЭталонGEO",
+    icons: `${URL}/public/unnamed.png`,
     description: "Межевание, Технические планы",
+    category: "Кадастровые работы",
+    openGraph: {
+        type: "website",
+        url: URL,
+        title: "EtalonGEO",
+        description: "Предоставляем кадастровые услуги любой сложности",
+        siteName: "EtalonGEO",
+        locale: "ru",
+    },
+    creator: "Денис Нестеров",
+    publisher: "beget",
+    keywords:
+        "etalongeo, кадастровый инженер, межевание, комплексные кадастровые работы, кадастр недвижимости, межевание земельного участка, межевание цена",
 };
 
 export default function RootLayout({

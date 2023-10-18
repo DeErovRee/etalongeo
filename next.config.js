@@ -5,9 +5,6 @@ const nextConfig = {
     compiler: {
         styledComponents: true,
     },
-    experimental: {
-        serverActions: true,
-    },
     images: {
         domains: ["127.0.0.1", "localhost", "31.129.108.132"],
     },

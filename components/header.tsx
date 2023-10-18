@@ -20,7 +20,7 @@ const pages = [
         ru: "О нас",
     },
     {
-        html: "#services",
+        html: "/#services",
         en: "Services",
         ru: "Услуги",
     },
@@ -55,7 +55,7 @@ export const Header = () => {
     };
 
     return (
-        <AppBar position="static">
+        <AppBar position="sticky">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Typography

@@ -3,6 +3,7 @@ import { ServiceCard } from "@/components/MainPage/serviceCard";
 import { LocalhostURL as URL } from "@/utils/URL";
 import { getData } from "@/utils/getData";
 import { Box, Container, Typography } from "@mui/material";
+import { Metadata } from "next";
 
 export interface Newses {
     data: Array<News>;
@@ -27,6 +28,11 @@ export type News = {
     };
 };
 
+export const metadata: Metadata = {
+    title: "ЭталонGEO | Услуги",
+    description: "Полный список услуг предоставляемых клиентам EtalonGEO",
+};
+
 export default async function Services() {
     const services: Services = await getData(
         "services",
@@ -47,7 +53,7 @@ export default async function Services() {
                     margin: "45px 0 15px",
                 }}
             >
-                Новости
+                Услуги
             </Typography>
             <Box
                 sx={{

@@ -1,4 +1,5 @@
 import { Button, Container, Typography } from "@mui/material";
+import { MuiTypoH1 } from "../MuiComponents/MuiTypoH1";
 
 export const MainSection1 = () => {
     return (
@@ -7,27 +8,21 @@ export const MainSection1 = () => {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
+                mb: "220px",
+                "@media (max-width: 955px)": {
+                    mb: "90px",
+                },
             }}
         >
-            <Typography
-                variant="h1"
-                component="h1"
-                sx={{
-                    mt: "210px",
-                    mb: "55px",
-                    display: { xs: "none", md: "flex" },
-                    textAlign: "center",
-                    fontFamily: "inherit",
-                    fontSize: "55px",
-                    fontWeight: 700,
-                    lineHeight: "65px",
-                    color: "white",
-                    textDecoration: "none",
-                }}
+            <MuiTypoH1
+                mDesktop="210px 0 55px"
+                mTablet="135px 0 43px"
+                mMobile="90px 0 30px"
+                color="white"
             >
                 Ваш надежный помощник в земельно-имущественных вопросах
-            </Typography>
-            <Button variant="contained" sx={{ p: "0px", mb: "220px" }}>
+            </MuiTypoH1>
+            <Button variant="contained">
                 <Typography
                     variant="button"
                     sx={{
@@ -35,6 +30,9 @@ export const MainSection1 = () => {
                         textTransform: "uppercase",
                         fontFamily: "inherit",
                         fontSize: "14px",
+                        "@media (min-width:0px)": {
+                            display: "unset",
+                        },
                     }}
                 >
                     <a

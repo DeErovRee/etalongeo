@@ -3,8 +3,14 @@ import { getData } from "@/utils/getData";
 import { Box, Container, Typography } from "@mui/material";
 import { News, Newses } from "../services/page";
 import { LocalhostURL as URL } from "@/utils/URL";
+import { Metadata } from "next";
 
-export default async function Services() {
+export const metadata: Metadata = {
+    title: "ЭталонGEO | Блог",
+    description: "Полезные стать и новости",
+};
+
+export default async function Blog() {
     const news: Newses = await getData("newses", 10, 1, "date", ":desc");
     return (
         <Container>

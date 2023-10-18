@@ -1,5 +1,4 @@
-import { Button, Typography } from "@mui/material";
-import Box from "@mui/material/Box";
+import { Button, Typography, Box } from "@mui/material";
 import TextField from "@mui/material/TextField";
 
 export const Form = () => {
@@ -22,31 +21,43 @@ export const Form = () => {
             noValidate
             autoComplete="off"
         >
-            <div
-                style={{
+            <Box
+                sx={{
                     display: "flex",
                     flexDirection: "row",
+                    "@media (max-width: 955px)": {
+                        flexDirection: "column",
+                    },
                 }}
             >
                 <TextField
                     id="outlined-basic"
                     label="Ваше имя"
                     variant="outlined"
+                    style={{
+                        width: "-webkit-fill-available",
+                    }}
                 />
                 <TextField
                     id="outlined-basic"
                     type="email"
                     label="Ваш email"
                     variant="outlined"
+                    style={{
+                        width: "-webkit-fill-available",
+                    }}
                 />
                 <TextField
                     id="outlined-basic"
                     label="Тема"
                     variant="outlined"
+                    style={{
+                        width: "-webkit-fill-available",
+                    }}
                 />
-            </div>
-            <div
-                style={{
+            </Box>
+            <Box
+                sx={{
                     display: "flex",
                 }}
             >
@@ -56,12 +67,15 @@ export const Form = () => {
                     variant="outlined"
                     multiline={true}
                     rows={5}
+                    fullWidth
                 />
-            </div>
+            </Box>
+
             <Button variant="contained" sx={{ m: "8px", p: "0" }}>
                 <Typography
                     variant="button"
                     sx={{
+                        display: { s: "unset" },
                         m: "13px 35px",
                         textTransform: "uppercase",
                         fontFamily: "inherit",

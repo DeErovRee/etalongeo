@@ -1,11 +1,5 @@
-import { LocalhostAPIurl as apiURL } from "@/utils/URL";
+import { getDataPost } from "@/utils/getDataEntry";
 import { Container } from "@mui/material";
-
-async function getData(id: string) {
-    const res = await fetch(`${apiURL}/services/${id}`);
-
-    return res.json();
-}
 
 type Props = {
     params: {
@@ -13,8 +7,17 @@ type Props = {
     };
 };
 
-export default async function Post({ params: { id } }: Props) {
-    const post = await getData(id);
+export async function generateMetadata({ params: { id } }: Props) {
+    const service = await getDataPost(id, "services");
+
+    return {
+        title: `EtalonGEO | ${service.data.attributes.title}`,
+    };
+}
+
+export default async function Service({ params: { id } }: Props) {
+    const service = await getDataPost(id, "services");
+
     return (
         <Container
             maxWidth={false}
@@ -25,9 +28,9 @@ export default async function Post({ params: { id } }: Props) {
         >
             <Container>
                 <h1 style={{ padding: "25px 0 0" }}>
-                    {post.data.attributes.title}
+                    {service.data.attributes.title}
                 </h1>
-                <p>{post.data.attributes.text}</p>
+                <p>{service.data.attributes.text}</p>
             </Container>
         </Container>
     );

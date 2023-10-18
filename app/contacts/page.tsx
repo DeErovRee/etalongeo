@@ -1,4 +1,10 @@
 import { Container, Typography, Box } from "@mui/material";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "ЭталонGEO | Контакты",
+    description: "Контакты для связи с нами",
+};
 
 export default function Contacts() {
     return (

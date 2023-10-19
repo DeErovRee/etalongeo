@@ -1,9 +1,10 @@
 import { ServiceCard } from "@/components/MainPage/serviceCard";
 import { getData } from "@/utils/getData";
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import { News, Newses } from "../services/page";
 import { LocalhostURL as URL } from "@/utils/URL";
 import { Metadata } from "next";
+import { MuiTypoH1 } from "@/components/MuiComponents/MuiTypoH1";
 
 export const metadata: Metadata = {
     title: "ЭталонGEO | Блог",
@@ -14,18 +15,14 @@ export default async function Blog() {
     const news: Newses = await getData("newses", 10, 1, "date", ":desc");
     return (
         <Container>
-            <Typography
-                variant="h2"
-                component="h2"
-                sx={{
-                    textAlign: "center",
-                    fontWeight: "700",
-                    color: "white",
-                    margin: "45px 0 15px",
-                }}
+            <MuiTypoH1
+                mDesktop="45px 0 15px"
+                mTablet=""
+                mMobile=""
+                color="white"
             >
                 Новости
-            </Typography>
+            </MuiTypoH1>
             <Box
                 sx={{
                     display: "flex",

@@ -1,0 +1,9 @@
+doc = #236faf
+xls = #4d95dcbd
+ppt = #98bcce
+pdf = #d0cdaf
+
+doc = rgb(24 90 189 / 65%)
+xls = rgb(49 160 73 / 68%)
+ppt = rgb(226 119 27 / 68%)
+pdf = rgb(232 43 49 / 67%)

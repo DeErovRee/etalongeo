@@ -1,4 +1,6 @@
-import { Container, Typography, Box } from "@mui/material";
+import { MuiTypoBody } from "@/components/MuiComponents/MuiTypoBody";
+import { MuiTypoH1 } from "@/components/MuiComponents/MuiTypoH1";
+import { Container, Box } from "@mui/material";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -21,21 +23,14 @@ export default function Contacts() {
                     alignItems: "center",
                 }}
             >
-                <Typography
-                    variant="h1"
-                    component="h1"
-                    sx={{
-                        mt: "60px",
-                        mb: "7px",
-                        display: { xs: "none", md: "flex" },
-                        color: "#1976d2",
-                        fontSize: "20px",
-                        lineHeight: "22px",
-                        fontWeight: "bold",
-                    }}
+                <MuiTypoH1
+                    mDesktop="60px 0 7px 0"
+                    mTablet=""
+                    mMobile=""
+                    color="black"
                 >
                     Контакты
-                </Typography>
+                </MuiTypoH1>
                 <hr
                     style={{
                         height: "2px",
@@ -50,17 +45,37 @@ export default function Contacts() {
                         mb: "70px",
                     }}
                 >
-                    <p>
+                    <MuiTypoBody
+                        mDesktop=""
+                        mTablet=""
+                        mMobile=""
+                        color="black"
+                    >
                         <b>Режим работы: </b>пн.- пт. c 10 — 00 до 19 — 00
-                    </p>
-                    <p>
+                    </MuiTypoBody>
+                    <MuiTypoBody
+                        mDesktop=""
+                        mTablet=""
+                        mMobile=""
+                        color="black"
+                    >
                         <b>Адрес: </b>625003 г. Тюмень, ул. Республики 59, офис
                         834
-                    </p>
-                    <p>
+                    </MuiTypoBody>
+                    <MuiTypoBody
+                        mDesktop=""
+                        mTablet=""
+                        mMobile=""
+                        color="black"
+                    >
                         <b>Телефон: </b>8(9088) 73 74 40
-                    </p>
-                    <p>
+                    </MuiTypoBody>
+                    <MuiTypoBody
+                        mDesktop=""
+                        mTablet=""
+                        mMobile=""
+                        color="black"
+                    >
                         <b>Почта: </b>
                         <a
                             href="mailto:kd@etalongeo.ru"
@@ -71,16 +86,17 @@ export default function Contacts() {
                         >
                             kd@etalongeo.ru
                         </a>
-                    </p>
+                    </MuiTypoBody>
                 </Box>
                 <Box
                     sx={{
                         mb: "170px",
+                        width: "100%",
                     }}
                 >
                     <iframe
                         src="https://yandex.ru/map-widget/v1/?um=constructor%3Acdce439a500152832d7e4831bf4e1143195d855c2ddefe42c7ea848866420638&amp;source=constructor"
-                        width="825"
+                        width="100%"
                         height="350"
                         frameBorder="0"
                     ></iframe>

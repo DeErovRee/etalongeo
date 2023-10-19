@@ -1,5 +1,6 @@
 import { Service, Services } from "@/components/MainPage/mainSection2";
 import { ServiceCard } from "@/components/MainPage/serviceCard";
+import { MuiTypoH1 } from "@/components/MuiComponents/MuiTypoH1";
 import { LocalhostURL as URL } from "@/utils/URL";
 import { getData } from "@/utils/getData";
 import { Box, Container, Typography } from "@mui/material";
@@ -42,19 +43,19 @@ export default async function Services() {
         ":desc"
     );
     return (
-        <Container>
-            <Typography
-                variant="h2"
-                component="h2"
-                sx={{
-                    textAlign: "center",
-                    fontWeight: "700",
-                    color: "white",
-                    margin: "45px 0 15px",
-                }}
+        <Container
+            sx={{
+                minHeight: "78vh",
+            }}
+        >
+            <MuiTypoH1
+                mDesktop="45px 0 15px"
+                mTablet=""
+                mMobile=""
+                color="white"
             >
                 Услуги
-            </Typography>
+            </MuiTypoH1>
             <Box
                 sx={{
                     display: "flex",

@@ -20,7 +20,7 @@ const pages = [
         ru: "О нас",
     },
     {
-        html: "/#services",
+        html: "/services",
         en: "Services",
         ru: "Услуги",
     },
@@ -55,7 +55,7 @@ export const Header = () => {
     };
 
     return (
-        <AppBar position="sticky">
+        <AppBar position="static">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Typography
@@ -118,7 +118,15 @@ export const Header = () => {
                                     onClick={handleCloseNavMenu}
                                 >
                                     <Typography textAlign="center">
-                                        {page.ru}
+                                        <a
+                                            href={page.html}
+                                            style={{
+                                                textDecoration: "none",
+                                                color: "black",
+                                            }}
+                                        >
+                                            {page.ru}
+                                        </a>
                                     </Typography>
                                 </MenuItem>
                             ))}

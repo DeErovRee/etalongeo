@@ -1,10 +1,10 @@
 import { Card } from "@mui/material";
 import Image from "next/image";
-import { Typography } from "@mui/material";
 import "./style.css";
 import Link from "next/link";
 import { MuiTypoH4 } from "../MuiComponents/MuiTypoH4";
 import { MuiTypoBody } from "../MuiComponents/MuiTypoBody";
+import ReactMarkdown from "react-markdown";
 
 export const ServiceCard = ({
     title,
@@ -71,32 +71,19 @@ export const ServiceCard = ({
                         border: "1px solid #1976d2",
                     }}
                 />
-                <MuiTypoBody
+                {/* <MuiTypoBody
                     mDesktop="20px 0 0"
                     mTablet="20px 0 0"
                     mMobile="20px 0 0"
                     color="black"
-                    // variant="h6"
-                    // component="h6"
-                    // sx={{
-                    //     overflow: "hidden",
-                    //     textOverflow: "ellipsis",
-                    //     display: { s: "unset", md: "flex" },
-                    //     textAlign: "center",
-                    //     fontFamily: "inherit",
-                    //     fontSize: "14px",
-                    //     fontWeight: 500,
-                    //     lineHeight: "21px",
-                    //     color: "black",
-                    //     textDecoration: "none",
-                    //     mt: "20px",
-                    // }}
-                >
+                > */}
+                <ReactMarkdown>
                     {description.replace(regexp, "").length > 380
                         ? description.replace(regexp, "").substring(0, 380) +
                           "..."
                         : description.replace(regexp, "")}
-                </MuiTypoBody>
+                </ReactMarkdown>
+                {/* </MuiTypoBody> */}
             </Link>
         </Card>
     );

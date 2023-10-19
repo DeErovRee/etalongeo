@@ -25,7 +25,7 @@ export default function Docs() {
             maxWidth={false}
             sx={{
                 backgroundColor: "white",
-                height: "100%",
+                minHeight: "78vh",
             }}
         >
             <DocsForm />

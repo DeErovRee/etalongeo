@@ -5,6 +5,7 @@ export const Form = () => {
     return (
         <Box
             component="form"
+            id="form"
             sx={{
                 "& .MuiTextField-root": {
                     m: 1,

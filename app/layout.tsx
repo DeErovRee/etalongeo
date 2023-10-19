@@ -42,7 +42,6 @@ export default function RootLayout({
             <body
                 className={inter.className}
                 style={{
-                    height: "100vh",
                     display: "flex",
                     flexDirection: "column",
                 }}
@@ -53,6 +52,7 @@ export default function RootLayout({
                     placeholder="blur"
                     quality={100}
                     style={{
+                        minHeight: "100vh",
                         width: "100%",
                         filter: "brightness(0.8)",
                         objectFit: "cover",

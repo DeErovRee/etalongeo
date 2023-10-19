@@ -1,6 +1,7 @@
 import { Container } from "@mui/material";
 import { getDataPost } from "@/utils/getDataEntry";
 import ReactMarkdown from "react-markdown";
+import styles from "@/app/markdown-styles.module.css";
 
 export async function generateMetadata({ params: { id } }: Props) {
     const post = await getDataPost(id, "newses");
@@ -34,7 +35,9 @@ export default async function Post({ params: { id } }: Props) {
                 <p style={{ margin: "10px 0 10px" }}>
                     Опубликовано: <i>{post.data.attributes.date}</i>
                 </p>
-                <ReactMarkdown>{post.data.attributes.text}</ReactMarkdown>
+                <ReactMarkdown className={styles.reactMarkDown}>
+                    {post.data.attributes.text}
+                </ReactMarkdown>
             </Container>
         </Container>
     );

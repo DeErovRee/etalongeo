@@ -3,7 +3,6 @@ import Image from "next/image";
 import "./style.css";
 import Link from "next/link";
 import { MuiTypoH4 } from "../MuiComponents/MuiTypoH4";
-import { MuiTypoBody } from "../MuiComponents/MuiTypoBody";
 import ReactMarkdown from "react-markdown";
 
 export const ServiceCard = ({

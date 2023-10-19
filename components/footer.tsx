@@ -6,6 +6,7 @@ import PlaceOutlinedIcon from "@material-ui/icons/PlaceOutlined";
 import MailOutlineOutlinedIcon from "@material-ui/icons/MailOutlineOutlined";
 import PhoneCallbackOutlinedIcon from "@material-ui/icons/PhoneCallbackOutlined";
 import { MuiTypoH5 } from "./MuiComponents/MuiTypoH5";
+import { MuiTypoBody } from "./MuiComponents/MuiTypoBody";
 
 export const Footer = () => {
     return (
@@ -48,7 +49,7 @@ export const Footer = () => {
                         <PlaceOutlinedIcon
                             style={{ color: "white", height: "24px" }}
                         />
-                        <MuiTypoH5
+                        <MuiTypoBody
                             mDesktop="0 0 0 10px"
                             mTablet=""
                             mMobile=""
@@ -63,7 +64,7 @@ export const Footer = () => {
                             >
                                 Тюмень, ул. Республики, 59, офис 834
                             </a>
-                        </MuiTypoH5>
+                        </MuiTypoBody>
                     </Box>
                     <Box
                         sx={{
@@ -81,7 +82,7 @@ export const Footer = () => {
                         <MailOutlineOutlinedIcon
                             style={{ color: "white", height: "24px" }}
                         />
-                        <MuiTypoH5
+                        <MuiTypoBody
                             mDesktop="0 0 0 10px"
                             mTablet=""
                             mMobile=""
@@ -96,7 +97,7 @@ export const Footer = () => {
                             >
                                 kd@etalongeo.ru
                             </a>
-                        </MuiTypoH5>
+                        </MuiTypoBody>
                     </Box>
                     <Box
                         sx={{
@@ -114,14 +115,14 @@ export const Footer = () => {
                         <PhoneCallbackOutlinedIcon
                             style={{ color: "white", height: "24px" }}
                         />
-                        <MuiTypoH5
+                        <MuiTypoBody
                             mDesktop="0 0 0 10px"
                             mTablet=""
                             mMobile=""
                             color="white"
                         >
                             +7 9088 73-74-40
-                        </MuiTypoH5>
+                        </MuiTypoBody>
                     </Box>
                 </Container>
             </Container>

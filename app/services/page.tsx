@@ -67,7 +67,7 @@ export default async function Services() {
                 {services.data.map((el: Service) => {
                     return (
                         <ServiceCard
-                            endpoint="blog"
+                            endpoint="services"
                             id={el.id}
                             title={el.attributes.title}
                             description={el.attributes.text}

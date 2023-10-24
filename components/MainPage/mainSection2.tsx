@@ -99,7 +99,7 @@ export const MainSection2 = async () => {
                                 el.attributes.poster.data.attributes.formats
                                     .thumbnail.url
                             }
-                            id={2}
+                            id={el.id}
                         />
                     );
                 })}

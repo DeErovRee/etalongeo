@@ -22,7 +22,7 @@ export default async function Service({ params: { id } }: Props) {
         <Container
             maxWidth={false}
             sx={{
-                height: "100%",
+                height: "77vh",
                 backgroundColor: "white",
             }}
         >

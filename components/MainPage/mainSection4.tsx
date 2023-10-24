@@ -4,7 +4,6 @@ import { getData } from "@/utils/getData";
 import { News, Newses } from "@/app/services/page";
 import { LocalhostURL as URL } from "@/utils/URL";
 import Link from "next/link";
-import { MuiTypoH1 } from "../MuiComponents/MuiTypoH1";
 import { MuiTypoH2 } from "../MuiComponents/MuiTypoH2";
 
 export async function MainSection4() {
@@ -47,7 +46,7 @@ export async function MainSection4() {
                             key={el.id}
                             id={el.id}
                             title={el.attributes.title}
-                            description={el.attributes.text}
+                            description={el.attributes.description}
                             img={
                                 URL +
                                 el.attributes.poster.data.attributes.formats

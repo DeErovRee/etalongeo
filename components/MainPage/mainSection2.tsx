@@ -15,6 +15,7 @@ export type Service = {
     attributes: {
         title: string;
         text: string;
+        description: string;
         poster: {
             data: {
                 attributes: {
@@ -92,7 +93,7 @@ export const MainSection2 = async () => {
                             key={el.id}
                             endpoint="services"
                             title={el.attributes.title}
-                            description={el.attributes.text}
+                            description={el.attributes.description}
                             img={
                                 URL +
                                 el.attributes.poster.data.attributes.formats

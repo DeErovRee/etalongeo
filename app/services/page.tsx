@@ -15,6 +15,7 @@ export type News = {
     attributes: {
         title: string;
         text: string;
+        description: string;
         poster: {
             data: {
                 attributes: {

@@ -44,6 +44,7 @@ export async function MainSection4() {
                     return (
                         <ServiceCard
                             endpoint="blog"
+                            key={el.id}
                             id={el.id}
                             title={el.attributes.title}
                             description={el.attributes.text}

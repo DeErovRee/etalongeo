@@ -68,21 +68,15 @@ export const ServiceCard = ({
                     style={{
                         width: "50%",
                         border: "1px solid #1976d2",
+                        marginBottom: "5px",
                     }}
                 />
-                {/* <MuiTypoBody
-                    mDesktop="20px 0 0"
-                    mTablet="20px 0 0"
-                    mMobile="20px 0 0"
-                    color="black"
-                > */}
                 <ReactMarkdown>
                     {description.replace(regexp, "").length > 380
                         ? description.replace(regexp, "").substring(0, 380) +
                           "..."
                         : description.replace(regexp, "")}
                 </ReactMarkdown>
-                {/* </MuiTypoBody> */}
             </Link>
         </Card>
     );

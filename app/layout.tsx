@@ -7,27 +7,32 @@ import bgImage from "../public/bg1.jpg";
 import { Footer } from "@/components/footer";
 import Script from "next/script";
 import { LocalhostURL as URL } from "@/utils/URL";
+import { GetMetadata } from "@/utils/getMetadata";
 
 const inter = Montserrat({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-    title: "ЭталонGEO",
-    icons: `${URL}/public/unnamed.png`,
-    description: "Межевание, Технические планы",
-    category: "Кадастровые работы",
-    openGraph: {
-        type: "website",
-        url: URL,
-        title: "EtalonGEO",
-        description: "Предоставляем кадастровые услуги любой сложности",
-        siteName: "EtalonGEO",
-        locale: "ru",
-    },
-    creator: "Денис Нестеров",
-    publisher: "beget",
-    keywords:
-        "etalongeo, кадастровый инженер, межевание, комплексные кадастровые работы, кадастр недвижимости, межевание земельного участка, межевание цена",
-};
+export async function generateMetadata() {
+    const SEO = (await GetMetadata()).data.attributes;
+
+    return {
+        metadataBase: `${URL}`,
+        title: `${SEO.title}`,
+        icons: `${SEO.icons}`,
+        description: `${SEO.description}`,
+        category: `${SEO.category}`,
+        openGraph: {
+            type: `${SEO.openGraph.type}`,
+            url: `${SEO.openGraph.url}`,
+            title: `${SEO.openGraph.title}`,
+            description: `${SEO.openGraph.description}`,
+            siteName: `${SEO.openGraph.siteName}`,
+            locale: `${SEO.openGraph.locale}`,
+        },
+        creator: "Денис Нестеров",
+        publisher: `${SEO.publisher}`,
+        keywords: `${SEO.keywords}`,
+    };
+}
 
 export default function RootLayout({
     children,

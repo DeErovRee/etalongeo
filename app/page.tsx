@@ -9,7 +9,6 @@ export default async function Home() {
         <main>
             <MainSection1 />
             <MainSection2 />
-            {/* <MainSection3 /> */}
             <MainSection4 />
             <MainSection5 />
         </main>

@@ -38,8 +38,6 @@ export const MainSection2 = async () => {
         ":desc"
     );
 
-    console.log(services);
-
     return (
         <Container
             maxWidth={false}

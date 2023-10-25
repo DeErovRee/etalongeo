@@ -32,7 +32,7 @@ export const Form = () => {
                 }}
             >
                 <TextField
-                    id="outlined-basic"
+                    id="name"
                     label="Ваше имя"
                     variant="outlined"
                     style={{
@@ -40,7 +40,7 @@ export const Form = () => {
                     }}
                 />
                 <TextField
-                    id="outlined-basic"
+                    id="email"
                     type="email"
                     label="Ваш email"
                     variant="outlined"
@@ -49,7 +49,7 @@ export const Form = () => {
                     }}
                 />
                 <TextField
-                    id="outlined-basic"
+                    id="theme"
                     label="Тема"
                     variant="outlined"
                     style={{
@@ -63,7 +63,7 @@ export const Form = () => {
                 }}
             >
                 <TextField
-                    id="outlined-basic"
+                    id="message"
                     label="Ваше сообщение"
                     variant="outlined"
                     multiline={true}
@@ -72,7 +72,7 @@ export const Form = () => {
                 />
             </Box>
 
-            <Button variant="contained" sx={{ m: "8px", p: "0" }}>
+            <Button type="submit" variant="contained" sx={{ m: "8px", p: "0" }}>
                 <Typography
                     variant="button"
                     sx={{

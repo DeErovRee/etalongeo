@@ -1,5 +1,6 @@
+import { BackButton } from "@/components/backButton";
 import { getDataPost } from "@/utils/getDataEntry";
-import { Container } from "@mui/material";
+import { Container, Button } from "@mui/material";
 
 type Props = {
     params: {
@@ -26,11 +27,21 @@ export default async function Service({ params: { id } }: Props) {
                 backgroundColor: "white",
             }}
         >
-            <Container>
-                <h1 style={{ padding: "25px 0 0" }}>
+            <Container
+                sx={{
+                    margin: "25px auto",
+                }}
+            >
+                <BackButton backTo="все услуги" url="/services" />
+                <h1 style={{ padding: "10px 0 0" }}>
                     {service.data.attributes.title}
                 </h1>
-                <p>{service.data.attributes.text}</p>
+                <p style={{ marginBottom: "10px" }}>
+                    {service.data.attributes.text}
+                </p>
+                <Button variant="contained" href="/#form">
+                    Заказать услугу
+                </Button>
             </Container>
         </Container>
     );

@@ -37,7 +37,7 @@ export default async function Blog() {
                             endpoint="blog"
                             id={el.id}
                             title={el.attributes.title}
-                            description={el.attributes.text}
+                            description={el.attributes.description}
                             img={
                                 URL +
                                 el.attributes.poster.data.attributes.formats

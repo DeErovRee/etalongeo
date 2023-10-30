@@ -55,8 +55,15 @@ export default async function Service({ params: { id } }: Props) {
                 <MuiTypoH1 mDesktop="0 0 20px 0">
                     {service.data.attributes.title}
                 </MuiTypoH1>
-                <Box display={"flex"}>
-                    <MuiTypoBody mDesktop="0 10px 0 0">
+                <Box
+                    display={"flex"}
+                    sx={{
+                        "@media (max-width: 955px)": {
+                            flexDirection: "column",
+                        },
+                    }}
+                >
+                    <MuiTypoBody mDesktop="0 10px 0 0" mTablet="0 0 10px 0">
                         {service.data.attributes.text}
                     </MuiTypoBody>
                     <Image
@@ -77,7 +84,11 @@ export default async function Service({ params: { id } }: Props) {
                             service.data.attributes.poster.data.attributes
                                 .formats.small.name
                         }
-                        style={{ objectFit: "contain", borderRadius: "10px" }}
+                        style={{
+                            objectFit: "contain",
+                            borderRadius: "10px",
+                            width: "100%",
+                        }}
                     />
                 </Box>
                 <Box>

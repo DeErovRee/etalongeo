@@ -23,6 +23,7 @@ export const ServiceCard = ({
     return (
         <Card
             variant="outlined"
+            className="card"
             sx={{
                 maxWidth: "300px",
                 width: "278px",
@@ -56,12 +57,7 @@ export const ServiceCard = ({
                         margin: "0 0 20px",
                     }}
                 />
-                <MuiTypoH4
-                    mDesktop="0 0 6px"
-                    mTablet="0 0 6px"
-                    mMobile="0 0 6px"
-                    color="black"
-                >
+                <MuiTypoH4 mDesktop="0 0 6px" color="black">
                     {title}
                 </MuiTypoH4>
                 <hr

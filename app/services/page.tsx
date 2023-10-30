@@ -3,7 +3,7 @@ import { ServiceCard } from "@/components/MainPage/serviceCard";
 import { MuiTypoH1 } from "@/components/MuiComponents/MuiTypoH1";
 import { LocalhostURL as URL } from "@/utils/URL";
 import { getData } from "@/utils/getData";
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import { Metadata } from "next";
 
 export interface Newses {
@@ -49,12 +49,7 @@ export default async function Services() {
                 minHeight: "78vh",
             }}
         >
-            <MuiTypoH1
-                mDesktop="45px 0 15px"
-                mTablet=""
-                mMobile=""
-                color="white"
-            >
+            <MuiTypoH1 mDesktop="45px 0 15px" color="white">
                 Услуги
             </MuiTypoH1>
             <Box

@@ -1,14 +1,14 @@
 import { Typography } from "@mui/material";
-import { ReactNode } from "react";
 import { fontSize } from "@/utils/fontSize";
+import { Props } from "./Types";
 
-export const MuiTypoBody: React.FC<{
-    mDesktop: string;
-    mTablet: string;
-    mMobile: string;
-    children: ReactNode;
-    color: string;
-}> = ({ mDesktop, mTablet, mMobile, children, color }) => {
+export const MuiTypoBody: React.FC<Props> = ({
+    mDesktop,
+    mTablet,
+    mMobile,
+    children,
+    color,
+}) => {
     return (
         <Typography
             variant="body1"

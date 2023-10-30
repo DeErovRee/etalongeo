@@ -15,12 +15,7 @@ export default async function Blog() {
     const news: Newses = await getData("newses", 10, 1, "date", ":desc");
     return (
         <Container>
-            <MuiTypoH1
-                mDesktop="45px 0 15px"
-                mTablet=""
-                mMobile=""
-                color="white"
-            >
+            <MuiTypoH1 mDesktop="45px 0 15px" color="white">
                 Новости
             </MuiTypoH1>
             <Box

@@ -21,17 +21,12 @@ export const MainSection5 = () => {
             >
                 Контактная информация
             </MuiTypoH2>
-            <MuiTypoH4
-                mDesktop="10px 0 0"
-                mTablet="10px 0 0"
-                mMobile="10px 0 0"
-                color="white"
-            >
+            <MuiTypoH4 mDesktop="10px 0 0" color="white">
                 Заполняя формы обратной связи на сайте etalongeo.ru, Вы даете
                 свое согласие на обработку персональных данных в соответствии с
                 ФЗ №152 - ФЗ "О персональных данных".
             </MuiTypoH4>
-            <Form />
+            <Form buttonText="Отправить" />
         </Container>
     );
 };

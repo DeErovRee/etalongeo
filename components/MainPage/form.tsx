@@ -1,7 +1,15 @@
 import { Button, Typography, Box } from "@mui/material";
 import TextField from "@mui/material/TextField";
+import { MuiTypoH3 } from "../MuiComponents/MuiTypoH3";
 
-export const Form = () => {
+interface Props {
+    headerText?: string;
+    buttonText?: string;
+    theme?: string;
+    message?: string;
+}
+
+export const Form = ({ headerText, buttonText, theme, message }: Props) => {
     return (
         <Box
             component="form"
@@ -13,8 +21,7 @@ export const Form = () => {
                     boxSizing: "border-box",
                 },
                 backgroundColor: "white",
-                width: "100%",
-                mt: "75px",
+                mt: "25px",
                 mb: "30px",
                 p: "10px",
                 borderRadius: "5px",
@@ -22,6 +29,9 @@ export const Form = () => {
             noValidate
             autoComplete="off"
         >
+            <MuiTypoH3 mDesktop="0 0 10px 0" color="inherit">
+                {headerText}
+            </MuiTypoH3>
             <Box
                 sx={{
                     display: "flex",
@@ -52,6 +62,7 @@ export const Form = () => {
                     id="theme"
                     label="Тема"
                     variant="outlined"
+                    value={theme}
                     style={{
                         width: "-webkit-fill-available",
                     }}
@@ -66,6 +77,7 @@ export const Form = () => {
                     id="message"
                     label="Ваше сообщение"
                     variant="outlined"
+                    value={message}
                     multiline={true}
                     rows={5}
                     fullWidth
@@ -83,7 +95,7 @@ export const Form = () => {
                         fontSize: "14px",
                     }}
                 >
-                    Отправить
+                    {buttonText}
                 </Typography>
             </Button>
         </Box>

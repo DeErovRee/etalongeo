@@ -54,12 +54,7 @@ export const Footer = () => {
                             <PlaceOutlinedIcon
                                 style={{ color: "white", height: "24px" }}
                             />
-                            <MuiTypoBody
-                                mDesktop="0 0 0 0"
-                                mTablet=""
-                                mMobile=""
-                                color="white"
-                            >
+                            <MuiTypoBody color="white">
                                 Тюмень, ул. Республики, 59, офис 834
                             </MuiTypoBody>
                         </Box>
@@ -88,12 +83,7 @@ export const Footer = () => {
                             <MailOutlineOutlinedIcon
                                 style={{ color: "white", height: "24px" }}
                             />
-                            <MuiTypoBody
-                                mDesktop="0 0 0 0"
-                                mTablet=""
-                                mMobile=""
-                                color="white"
-                            >
+                            <MuiTypoBody color="white">
                                 kd@etalongeo.ru
                             </MuiTypoBody>
                         </Box>
@@ -122,12 +112,7 @@ export const Footer = () => {
                             <PhoneCallbackOutlinedIcon
                                 style={{ color: "white", height: "24px" }}
                             />
-                            <MuiTypoBody
-                                mDesktop="0 0 0 0"
-                                mTablet=""
-                                mMobile=""
-                                color="white"
-                            >
+                            <MuiTypoBody color="white">
                                 +7 9088 73-74-40
                             </MuiTypoBody>
                         </Box>

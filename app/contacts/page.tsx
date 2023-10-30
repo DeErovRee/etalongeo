@@ -23,12 +23,7 @@ export default function Contacts() {
                     alignItems: "center",
                 }}
             >
-                <MuiTypoH1
-                    mDesktop="60px 0 7px 0"
-                    mTablet=""
-                    mMobile=""
-                    color="black"
-                >
+                <MuiTypoH1 mDesktop="60px 0 7px 0" color="black">
                     Контакты
                 </MuiTypoH1>
                 <hr
@@ -45,37 +40,17 @@ export default function Contacts() {
                         mb: "70px",
                     }}
                 >
-                    <MuiTypoBody
-                        mDesktop=""
-                        mTablet=""
-                        mMobile=""
-                        color="black"
-                    >
+                    <MuiTypoBody color="black">
                         <b>Режим работы: </b>пн.- пт. c 10 — 00 до 19 — 00
                     </MuiTypoBody>
-                    <MuiTypoBody
-                        mDesktop=""
-                        mTablet=""
-                        mMobile=""
-                        color="black"
-                    >
+                    <MuiTypoBody color="black">
                         <b>Адрес: </b>625003 г. Тюмень, ул. Республики 59, офис
                         834
                     </MuiTypoBody>
-                    <MuiTypoBody
-                        mDesktop=""
-                        mTablet=""
-                        mMobile=""
-                        color="black"
-                    >
+                    <MuiTypoBody color="black">
                         <b>Телефон: </b>8(9088) 73 74 40
                     </MuiTypoBody>
-                    <MuiTypoBody
-                        mDesktop=""
-                        mTablet=""
-                        mMobile=""
-                        color="black"
-                    >
+                    <MuiTypoBody color="black">
                         <b>Почта: </b>
                         <a
                             href="mailto:kd@etalongeo.ru"

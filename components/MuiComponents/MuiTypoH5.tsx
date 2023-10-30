@@ -1,14 +1,14 @@
 import { Typography } from "@mui/material";
-import { ReactNode } from "react";
 import { fontSize } from "@/utils/fontSize";
+import { Props } from "./Types";
 
-export const MuiTypoH5: React.FC<{
-    mDesktop: string;
-    mTablet: string | null;
-    mMobile: string | null;
-    children: ReactNode;
-    color: string | null;
-}> = ({ mDesktop, mTablet, mMobile, children, color }) => {
+export const MuiTypoH5: React.FC<Props> = ({
+    mDesktop,
+    mTablet,
+    mMobile,
+    children,
+    color,
+}) => {
     return (
         <Typography
             variant="h5"

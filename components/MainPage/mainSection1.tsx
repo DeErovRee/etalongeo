@@ -22,27 +22,27 @@ export const MainSection1 = () => {
             >
                 Ваш надежный помощник в земельно-имущественных вопросах
             </MuiTypoH1>
-            <Button variant="contained">
-                <Typography
-                    variant="button"
-                    sx={{
-                        m: "13px 35px",
-                        textTransform: "uppercase",
-                        fontFamily: "inherit",
-                        fontSize: "14px",
-                        "@media (min-width:0px)": {
-                            display: "unset",
-                        },
-                    }}
-                >
-                    <a
-                        href="#form"
-                        style={{ textDecoration: "none", color: "inherit" }}
+            <a
+                href="/#form"
+                style={{ textDecoration: "none", color: "inherit" }}
+            >
+                <Button variant="contained">
+                    <Typography
+                        variant="button"
+                        sx={{
+                            m: "13px 35px",
+                            textTransform: "uppercase",
+                            fontFamily: "inherit",
+                            fontSize: "14px",
+                            "@media (min-width:0px)": {
+                                display: "unset",
+                            },
+                        }}
                     >
                         Заказать консультацию
-                    </a>
-                </Typography>
-            </Button>
+                    </Typography>
+                </Button>
+            </a>
         </Container>
     );
 };

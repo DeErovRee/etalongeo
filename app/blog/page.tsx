@@ -1,4 +1,4 @@
-import { ServiceCard } from "@/components/MainPage/serviceCard";
+import { ServiceCard } from "@/components/Cards/serviceCard";
 import { getData } from "@/utils/getData";
 import { Box, Container } from "@mui/material";
 import { News, Newses } from "../services/page";

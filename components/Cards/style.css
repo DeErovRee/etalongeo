@@ -19,3 +19,15 @@
     border: 7px solid #1976d2;
     transition: border 250ms ease-in-out;
 }
+
+.card hr {
+    width: 0px;
+    border: none;
+    border-bottom: 2px solid #1976d2;
+    transition: width 1000ms ease-in-out;
+}
+
+.card:hover hr {
+    width: 40%;
+    transition: width 250ms ease-in-out;
+}

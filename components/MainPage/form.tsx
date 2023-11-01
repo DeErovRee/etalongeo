@@ -20,6 +20,7 @@ export const Form = ({ headerText, buttonText, theme, message }: Props) => {
                     width: "100%",
                     boxSizing: "border-box",
                 },
+                width: "100%",
                 backgroundColor: "white",
                 mt: "25px",
                 mb: "30px",

@@ -1,10 +1,11 @@
 import { Container, Typography, Button } from "@mui/material";
-import { ServiceCard } from "./serviceCard";
+import { ServiceCard } from "../Cards/serviceCard";
 import { getData } from "@/utils/getData";
 import { News, Newses } from "@/app/services/page";
 import { LocalhostURL as URL } from "@/utils/URL";
 import Link from "next/link";
 import { MuiTypoH2 } from "../MuiComponents/MuiTypoH2";
+import { NewsCard } from "../Cards/newsCard";
 
 export async function MainSection4() {
     const news: Newses = await getData("newses", 4, 1, "date", ":desc");
@@ -31,7 +32,7 @@ export async function MainSection4() {
             <Container
                 sx={{
                     display: "flex",
-                    flexDirection: "row",
+                    flexDirection: "column",
                     flexWrap: "nowrap",
                     justifyContent: "center",
                     "@media (max-width: 955px)": {
@@ -41,7 +42,7 @@ export async function MainSection4() {
             >
                 {news.data.map((el: News) => {
                     return (
-                        <ServiceCard
+                        <NewsCard
                             endpoint="blog"
                             key={el.id}
                             id={el.id}

@@ -1,13 +1,14 @@
 import { Header } from "@/components/header";
 import Image from "next/image";
 import "./globals.css";
-import type { Metadata } from "next";
+import YandexMetrika from "@/components/YandexMetrika";
 import { Montserrat } from "next/font/google";
 import bgImage from "../public/bg1.jpg";
 import { Footer } from "@/components/footer";
 import Script from "next/script";
 import { LocalhostURL as URL } from "@/utils/URL";
 import { GetMetadata } from "@/utils/getMetadata";
+import Head from "next/head";
 
 const inter = Montserrat({ subsets: ["latin"] });
 
@@ -41,9 +42,22 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <Script>
-                <script src="//code.jivo.ru/widget/spZbhZ8Ytu" async></script>
-            </Script>
+            <Head>
+                <Script>
+                    <script
+                        src="//code.jivo.ru/widget/spZbhZ8Ytu"
+                        async
+                    ></script>
+                </Script>
+                <YandexMetrika
+                    yid={95364381}
+                    clickmap={true}
+                    trackLinks={true}
+                    accurateTrackBounce={true}
+                    webvisor={true}
+                />
+            </Head>
+
             <body
                 className={inter.className}
                 style={{

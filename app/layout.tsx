@@ -1,7 +1,7 @@
 import { Header } from "@/components/header";
 import Image from "next/image";
 import "./globals.css";
-import YandexMetrika from "@/components/YandexMetrika";
+import { YandexMetrika } from "@/utils/YandexMetrika";
 import { Montserrat } from "next/font/google";
 import bgImage from "../public/bg1.jpg";
 import { Footer } from "@/components/footer";
@@ -49,13 +49,31 @@ export default function RootLayout({
                         async
                     ></script>
                 </Script>
-                <YandexMetrika
-                    yid={95364381}
-                    clickmap={true}
-                    trackLinks={true}
-                    accurateTrackBounce={true}
-                    webvisor={true}
-                />
+                <Script id="metrika-counter" strategy="afterInteractive">
+                    {`(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+                    m[i].l=1*new Date();
+                    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+                    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+                    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+        
+                    ym(95364381, "init", {
+                        defer: true,
+                        clickmap:true,
+                        trackLinks:true,
+                        accurateTrackBounce:true,
+                        webvisor:true
+                    });`}
+                </Script>
+                <YandexMetrika />
+                <noscript>
+                    <div>
+                        <img
+                            src="https://mc.yandex.ru/watch/95364381"
+                            style={{ position: "absolute", left: "-9999px" }}
+                            alt=""
+                        />
+                    </div>
+                </noscript>
             </Head>
 
             <body

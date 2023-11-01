@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 
-export const YandexMetrika = () => {
+export function YandexMetrika() {
     const pathname = usePathname();
     const searchParams = useSearchParams();
 
@@ -13,4 +13,4 @@ export const YandexMetrika = () => {
     }, [pathname, searchParams]);
 
     return null;
-};
+}

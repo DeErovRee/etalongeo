@@ -3,7 +3,8 @@ import Image from "next/image";
 import "./style.css";
 import Link from "next/link";
 import { MuiTypoH4 } from "../MuiComponents/MuiTypoH4";
-import { MuiTypoBody } from "../MuiComponents/MuiTypoBody";
+import { MuiTypoH5 } from "../MuiComponents/MuiTypoH5";
+import { MuiTypoH3 } from "../MuiComponents/MuiTypoH3";
 
 export const NewsCard = ({
     title,
@@ -23,10 +24,15 @@ export const NewsCard = ({
             variant="outlined"
             className="card"
             sx={{
-                width: "100%",
+                width: "400px",
+                minWidth: "200px",
                 minHeight: "200px",
-                margin: "10px 5px",
+                margin: "5px",
                 boxSizing: "border-box",
+                // backgroundImage: `url('${img}')`,
+                // backgroundPosition: "center",
+                // backgroundRepeat: "no-repeat",
+                // backgroundSize: "cover",
             }}
         >
             <Link
@@ -39,54 +45,66 @@ export const NewsCard = ({
                     height: "100%",
                     flexDirection: "row",
                     alignItems: "center",
+                    position: "relative",
                 }}
             >
                 <Box
                     className="imageBox"
                     style={{
                         height: "100%",
-                        width: "20%",
+                        width: "100%",
                         minWidth: "200px",
-                        margin: "0 10px 0 0",
+                        margin: "0 0 -4px 0",
+                        // filter: "blur(5px)",
                     }}
                 >
-                    <Image
-                        src={img}
-                        alt="Sattelite Photo"
-                        width={250}
-                        height={250}
-                        quality={100}
-                        style={{
-                            width: "100%",
-                            objectFit: "cover",
+                    <Box
+                        sx={{
+                            filter: "brightness(0.8)",
                         }}
-                    />
+                    >
+                        <Image
+                            src={img}
+                            alt="Sattelite Photo"
+                            width={400}
+                            height={200}
+                            quality={100}
+                            style={{
+                                width: "100%",
+                                objectFit: "cover",
+                            }}
+                        />
+                    </Box>
                 </Box>
                 <Box
                     className="textBox"
                     sx={{
                         display: "flex",
                         flexDirection: "column",
-                        alignItems: "flex-start",
+                        alignItems: "center",
                         boxSizing: "border-box",
-                        width: "80%",
+                        position: "absolute",
+                        justifyContent: "center",
+                        width: "100%",
                         height: "100%",
-                        padding: "15px 15px 15px 0",
+                        padding: "10px",
+                        "& p": {
+                            color: "white",
+                        },
                         "& h4": {
-                            width: "auto",
-                            borderBottom: "0px solid #1976d2",
+                            color: "white",
                         },
                     }}
                 >
-                    <MuiTypoH4
+                    <MuiTypoH3
                         mDesktop="0 0 6px"
-                        color="black"
-                        alignText="start"
+                        color="white"
+                        alignText="center"
                     >
                         {title}
-                    </MuiTypoH4>
+                    </MuiTypoH3>
                     <hr />
-                    <MuiTypoBody>{description}</MuiTypoBody>
+                    {/* <MuiTypoH5 color="white">{description}</MuiTypoH5> */}
                 </Box>
             </Link>
         </Card>

@@ -1,5 +1,4 @@
-import { Container, Typography, Button } from "@mui/material";
-import { ServiceCard } from "../Cards/serviceCard";
+import { Container, Button } from "@mui/material";
 import { getData } from "@/utils/getData";
 import { News, Newses } from "@/app/services/page";
 import { LocalhostURL as URL } from "@/utils/URL";
@@ -32,8 +31,8 @@ export async function MainSection4() {
             <Container
                 sx={{
                     display: "flex",
-                    flexDirection: "column",
-                    flexWrap: "nowrap",
+                    flexDirection: "row",
+                    flexWrap: "wrap",
                     justifyContent: "center",
                     "@media (max-width: 955px)": {
                         flexWrap: "wrap",
@@ -51,7 +50,7 @@ export async function MainSection4() {
                             img={
                                 URL +
                                 el.attributes.poster.data.attributes.formats
-                                    .thumbnail.url
+                                    .medium.url
                             }
                         />
                     );

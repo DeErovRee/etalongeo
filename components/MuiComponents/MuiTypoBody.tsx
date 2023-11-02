@@ -17,7 +17,7 @@ export const MuiTypoBody: React.FC<Props> = ({
                 fontFamily: "inherit",
                 fontSize: `${fontSize.desktop.p}`,
                 fontWeight: 500,
-                lineHeight: "26px",
+                lineHeight: "20px",
                 color: `${color}`,
                 "@media (max-width: 955px)": {
                     fontSize: `${fontSize.tablet.p}`,

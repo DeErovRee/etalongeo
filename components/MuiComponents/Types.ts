@@ -6,4 +6,5 @@ export interface Props {
     mMobile?: string;
     children: ReactNode;
     color?: string;
+    alignText?: string;
 }

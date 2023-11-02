@@ -1,5 +1,5 @@
 import { Container, Button } from "@mui/material";
-import { ServiceCard } from "./serviceCard";
+import { ServiceCard } from "../Cards/serviceCard";
 import { getData } from "@/utils/getData";
 import { LocalhostURL as URL } from "@/utils/URL";
 import Link from "next/link";

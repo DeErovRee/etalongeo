@@ -1,5 +1,5 @@
 import { Service, Services } from "@/components/MainPage/mainSection2";
-import { ServiceCard } from "@/components/MainPage/serviceCard";
+import { ServiceCard } from "@/components/Cards/serviceCard";
 import { MuiTypoH1 } from "@/components/MuiComponents/MuiTypoH1";
 import { LocalhostURL as URL } from "@/utils/URL";
 import { getData } from "@/utils/getData";
@@ -21,6 +21,12 @@ export type News = {
                 attributes: {
                     formats: {
                         thumbnail: {
+                            url: string;
+                        };
+                        small: {
+                            url: string;
+                        };
+                        medium: {
                             url: string;
                         };
                     };

@@ -1,10 +1,10 @@
-import { ServiceCard } from "@/components/Cards/serviceCard";
 import { getData } from "@/utils/getData";
 import { Box, Container } from "@mui/material";
 import { News, Newses } from "../services/page";
 import { LocalhostURL as URL } from "@/utils/URL";
 import { Metadata } from "next";
 import { MuiTypoH1 } from "@/components/MuiComponents/MuiTypoH1";
+import { NewsCard } from "@/components/Cards/newsCard";
 
 export const metadata: Metadata = {
     title: "ЭталонGEO | Блог",
@@ -27,7 +27,7 @@ export default async function Blog() {
             >
                 {news.data.map((el: News) => {
                     return (
-                        <ServiceCard
+                        <NewsCard
                             key={el.id}
                             endpoint="blog"
                             id={el.id}
@@ -36,7 +36,7 @@ export default async function Blog() {
                             img={
                                 URL +
                                 el.attributes.poster.data.attributes.formats
-                                    .thumbnail.url
+                                    .medium.url
                             }
                         />
                     );

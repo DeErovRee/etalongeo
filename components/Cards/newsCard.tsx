@@ -2,8 +2,6 @@ import { Card, Box } from "@mui/material";
 import Image from "next/image";
 import "./style.css";
 import Link from "next/link";
-import { MuiTypoH4 } from "../MuiComponents/MuiTypoH4";
-import { MuiTypoH5 } from "../MuiComponents/MuiTypoH5";
 import { MuiTypoH3 } from "../MuiComponents/MuiTypoH3";
 
 export const NewsCard = ({
@@ -24,12 +22,12 @@ export const NewsCard = ({
             variant="outlined"
             className="card"
             sx={{
-                width: "400px",
+                width: "370px",
                 minWidth: "250px",
                 minHeight: "200px",
                 margin: "5px",
                 boxSizing: "border-box",
-                maxHeight: "250px",
+                maxHeight: "200px",
             }}
         >
             <Link

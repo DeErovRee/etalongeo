@@ -7,7 +7,7 @@ import { MuiTypoH2 } from "../MuiComponents/MuiTypoH2";
 import { NewsCard } from "../Cards/newsCard";
 
 export async function MainSection4() {
-    const news: Newses = await getData("newses", 4, 1, "date", ":desc");
+    const news: Newses = await getData("newses", 6, 1, "date", ":desc");
     return (
         <Container
             maxWidth={false}

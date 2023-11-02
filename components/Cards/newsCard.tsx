@@ -25,14 +25,11 @@ export const NewsCard = ({
             className="card"
             sx={{
                 width: "400px",
-                minWidth: "200px",
+                minWidth: "250px",
                 minHeight: "200px",
                 margin: "5px",
                 boxSizing: "border-box",
-                // backgroundImage: `url('${img}')`,
-                // backgroundPosition: "center",
-                // backgroundRepeat: "no-repeat",
-                // backgroundSize: "cover",
+                maxHeight: "250px",
             }}
         >
             <Link
@@ -67,7 +64,7 @@ export const NewsCard = ({
                             src={img}
                             alt="Sattelite Photo"
                             width={450}
-                            height={250}
+                            height={300}
                             quality={100}
                             style={{
                                 width: "100%",

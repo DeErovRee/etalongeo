@@ -66,12 +66,14 @@ export const NewsCard = ({
                         <Image
                             src={img}
                             alt="Sattelite Photo"
-                            width={400}
-                            height={200}
+                            width={450}
+                            height={250}
                             quality={100}
                             style={{
                                 width: "100%",
+                                height: "100%",
                                 objectFit: "cover",
+                                margin: "-2px 0 0 0",
                             }}
                         />
                     </Box>

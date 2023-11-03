@@ -10,7 +10,17 @@ export const BackButton = ({
     url: string;
 }) => {
     return (
-        <Button variant="outlined" href={`${url}`}>
+        <Button
+            variant="outlined"
+            href={`${url}`}
+            sx={{
+                "& p": {
+                    "@media (max-width: 550px)": {
+                        display: "none",
+                    },
+                },
+            }}
+        >
             <ArrowBackIcon />
             <MuiTypoBody
                 mDesktop="0 0 0 10px"

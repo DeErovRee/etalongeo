@@ -1,6 +1,10 @@
+"use client";
+
 import { Button, Typography, Box } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import { MuiTypoH3 } from "../MuiComponents/MuiTypoH3";
+import { Mailer } from "@/utils/mailer";
+import { useState } from "react";
 
 interface Props {
     headerText?: string;
@@ -10,6 +14,24 @@ interface Props {
 }
 
 export const Form = ({ headerText, buttonText, theme, message }: Props) => {
+    const [error, setError] = useState(false);
+    const SendMail = (e: any) => {
+        e.preventDefault();
+        setError(false);
+
+        const name = e.target[0].value;
+        const email = e.target[2].value;
+        const theme = e.target[4].value;
+        const text = e.target[6].value;
+
+        if (!name && !email && !theme && !text) {
+            setError(true);
+            return;
+        }
+
+        Mailer({ name, email, text, theme });
+        e.target.reset();
+    };
     return (
         <Box
             component="form"
@@ -27,8 +49,9 @@ export const Form = ({ headerText, buttonText, theme, message }: Props) => {
                 p: "10px",
                 borderRadius: "5px",
             }}
-            noValidate
+            noValidate={false}
             autoComplete="off"
+            onSubmit={(e) => SendMail(e)}
         >
             <MuiTypoH3 mDesktop="0 0 10px 0" color="inherit">
                 {headerText}
@@ -46,6 +69,7 @@ export const Form = ({ headerText, buttonText, theme, message }: Props) => {
                     id="name"
                     label="Ваше имя"
                     variant="outlined"
+                    required={true}
                     style={{
                         width: "-webkit-fill-available",
                     }}
@@ -55,6 +79,7 @@ export const Form = ({ headerText, buttonText, theme, message }: Props) => {
                     type="email"
                     label="Ваш email"
                     variant="outlined"
+                    required={true}
                     style={{
                         width: "-webkit-fill-available",
                     }}
@@ -63,6 +88,7 @@ export const Form = ({ headerText, buttonText, theme, message }: Props) => {
                     id="theme"
                     label="Тема"
                     variant="outlined"
+                    required={true}
                     value={theme}
                     style={{
                         width: "-webkit-fill-available",
@@ -78,6 +104,7 @@ export const Form = ({ headerText, buttonText, theme, message }: Props) => {
                     id="message"
                     label="Ваше сообщение"
                     variant="outlined"
+                    required={true}
                     value={message}
                     multiline={true}
                     rows={5}

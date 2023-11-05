@@ -4,7 +4,8 @@ import { Button, Typography, Box } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import { MuiTypoH3 } from "../MuiComponents/MuiTypoH3";
 import { Mailer } from "@/utils/mailer";
-import { useState } from "react";
+import React, { useState } from "react";
+import { Confirmed } from "./confirmed";
 
 interface Props {
     headerText?: string;
@@ -15,6 +16,7 @@ interface Props {
 
 export const Form = ({ headerText, buttonText, theme, message }: Props) => {
     const [error, setError] = useState(false);
+    const [isSend, setIsSend] = useState<Boolean>(false);
     const SendMail = (e: any) => {
         e.preventDefault();
         setError(false);
@@ -29,7 +31,11 @@ export const Form = ({ headerText, buttonText, theme, message }: Props) => {
             return;
         }
 
-        Mailer({ name, email, text, theme });
+        Mailer({ name, email, text, theme }).then(() => {
+            alert(
+                "Ваша заявка зарегестрирована! Если вы верно указали свой email, вам придет письмо о том что заявка зарегестрирована"
+            );
+        });
         e.target.reset();
     };
     return (

@@ -5,7 +5,6 @@ import TextField from "@mui/material/TextField";
 import { MuiTypoH3 } from "../MuiComponents/MuiTypoH3";
 import { Mailer } from "@/utils/mailer";
 import React, { useState } from "react";
-import { Confirmed } from "./confirmed";
 
 interface Props {
     headerText?: string;

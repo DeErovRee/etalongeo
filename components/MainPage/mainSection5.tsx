@@ -2,6 +2,8 @@ import { Container } from "@mui/material";
 import { Form } from "./form";
 import { MuiTypoH2 } from "../MuiComponents/MuiTypoH2";
 import { MuiTypoH4 } from "../MuiComponents/MuiTypoH4";
+import Image from "next/image";
+import bgImage from "@/public/bg1.jpg";
 
 export const MainSection5 = () => {
     return (
@@ -10,6 +12,7 @@ export const MainSection5 = () => {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
+                position: "relative",
             }}
             id="form"
         >

@@ -1,9 +1,9 @@
 "use client";
 
 import { Container, Box } from "@mui/material";
-import PlaceOutlinedIcon from "@material-ui/icons/PlaceOutlined";
-import MailOutlineOutlinedIcon from "@material-ui/icons/MailOutlineOutlined";
-import PhoneCallbackOutlinedIcon from "@material-ui/icons/PhoneCallbackOutlined";
+import PlaceOutlinedIcon from "@mui/icons-material/PlaceOutlined";
+import MailOutlineOutlinedIcon from "@mui/icons-material/MailOutlineOutlined";
+import PhoneCallbackOutlinedIcon from "@mui/icons-material/PhoneCallbackOutlined";
 import { MuiTypoBody } from "./MuiComponents/MuiTypoBody";
 
 export const Footer = () => {

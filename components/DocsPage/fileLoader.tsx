@@ -1,8 +1,7 @@
 import { Button, Typography } from "@mui/material";
 import JSZip from "jszip";
-import certificate from "@/public/certificate1.jpg";
 import { saveAs } from "file-saver";
-import { Data, Response } from "@/app/docs/page";
+import { Response } from "@/app/docs/page";
 import { LocalhostURL as URL } from "@/utils/URL";
 
 export const FileLoader = ({ docs }: { docs: Response }) => {

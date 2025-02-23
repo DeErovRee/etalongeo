@@ -1,10 +1,10 @@
 "use client";
 
-import { Container, Box, Typography } from "@mui/material";
-import Image from "next/image";
+import { Container, Box } from "@mui/material";
 import PlaceOutlinedIcon from "@material-ui/icons/PlaceOutlined";
 import MailOutlineOutlinedIcon from "@material-ui/icons/MailOutlineOutlined";
 import PhoneCallbackOutlinedIcon from "@material-ui/icons/PhoneCallbackOutlined";
+import { MuiTypoBody } from "./MuiComponents/MuiTypoBody";
 
 export const Footer = () => {
     return (
@@ -15,6 +15,9 @@ export const Footer = () => {
                     backgroundColor: "#1976d2",
                     width: "100%",
                     p: "67px 0 30px",
+                    "@media (max-width: 955px)": {
+                        p: "30px 0 20px",
+                    },
                 }}
             >
                 <Container
@@ -23,98 +26,97 @@ export const Footer = () => {
                         alignItems: "center",
                         flexDirection: "row",
                         justifyContent: "space-between",
+                        "@media (max-width: 955px)": {
+                            flexDirection: "column",
+                        },
                     }}
                 >
-                    <Box
-                        sx={{
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "center",
+                    <a
+                        href="/contacts"
+                        style={{
+                            textDecoration: "none",
+                            color: "white",
                         }}
                     >
-                        <PlaceOutlinedIcon
-                            style={{ color: "white", height: "24px" }}
-                        />
-                        <Typography
-                            variant="h6"
-                            component="h6"
+                        <Box
                             sx={{
-                                display: { xs: "none", md: "flex" },
-                                textAlign: "center",
-                                fontFamily: "inherit",
-                                fontSize: "16px",
-                                fontWeight: 300,
-                                lineHeight: "20px",
-                                color: "white",
-                                textDecoration: "none",
-                                m: "10px 0 0",
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "center",
+                                "@media (max-width: 955px)": {
+                                    flexDirection: "row",
+                                    width: "100%",
+                                    justifyContent: "flex-start",
+                                    margin: "15px 0 0",
+                                },
                             }}
                         >
-                            Тюмень, ул. Республики, 59, офис 834
-                        </Typography>
-                    </Box>
-                    <Box
-                        sx={{
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "center",
+                            <PlaceOutlinedIcon
+                                style={{ color: "white", height: "24px" }}
+                            />
+                            <MuiTypoBody color="white">
+                                Тюмень, ул. Республики, 59, офис 834
+                            </MuiTypoBody>
+                        </Box>
+                    </a>
+
+                    <a
+                        href="mailto:kd@etalongeo.ru"
+                        style={{
+                            textDecoration: "none",
+                            color: "white",
                         }}
                     >
-                        <MailOutlineOutlinedIcon
-                            style={{ color: "white", height: "24px" }}
-                        />
-                        <Typography
-                            variant="h6"
-                            component="h6"
+                        <Box
                             sx={{
-                                display: { xs: "none", md: "flex" },
-                                textAlign: "center",
-                                fontFamily: "inherit",
-                                fontSize: "16px",
-                                fontWeight: 300,
-                                lineHeight: "20px",
-                                m: "10px 0 0",
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "center",
+                                "@media (max-width: 955px)": {
+                                    flexDirection: "row",
+                                    width: "100%",
+                                    justifyContent: "flex-start",
+                                    margin: "15px 0 0",
+                                },
                             }}
                         >
-                            <a
-                                href="mailto:kd@etalongeo.ru"
-                                style={{
-                                    textDecoration: "none",
-                                    color: "white",
-                                }}
-                            >
+                            <MailOutlineOutlinedIcon
+                                style={{ color: "white", height: "24px" }}
+                            />
+                            <MuiTypoBody color="white">
                                 kd@etalongeo.ru
-                            </a>
-                        </Typography>
-                    </Box>
-                    <Box
-                        sx={{
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "center",
+                            </MuiTypoBody>
+                        </Box>
+                    </a>
+
+                    <a
+                        href="tel:+79088737440"
+                        style={{
+                            textDecoration: "none",
+                            color: "white",
                         }}
                     >
-                        <PhoneCallbackOutlinedIcon
-                            style={{ color: "white", height: "24px" }}
-                        />
-                        <Typography
-                            variant="h6"
-                            component="h6"
+                        <Box
                             sx={{
-                                display: { xs: "none", md: "flex" },
-                                textAlign: "center",
-                                fontFamily: "inherit",
-                                fontSize: "16px",
-                                fontWeight: 300,
-                                lineHeight: "20px",
-                                color: "white",
-                                textDecoration: "none",
-                                m: "10px 0 0",
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "center",
+                                "@media (max-width: 955px)": {
+                                    flexDirection: "row",
+                                    width: "100%",
+                                    justifyContent: "flex-start",
+                                    margin: "15px 0 0",
+                                },
                             }}
                         >
-                            +7 9088 73-74-40
-                        </Typography>
-                    </Box>
+                            <PhoneCallbackOutlinedIcon
+                                style={{ color: "white", height: "24px" }}
+                            />
+                            <MuiTypoBody color="white">
+                                +7 9088 73-74-40
+                            </MuiTypoBody>
+                        </Box>
+                    </a>
                 </Container>
             </Container>
         </footer>

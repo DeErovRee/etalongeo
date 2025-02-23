@@ -1,8 +1,10 @@
 import { Service, Services } from "@/components/MainPage/mainSection2";
-import { ServiceCard } from "@/components/MainPage/serviceCard";
+import { ServiceCard } from "@/components/Cards/serviceCard";
+import { MuiTypoH1 } from "@/components/MuiComponents/MuiTypoH1";
 import { LocalhostURL as URL } from "@/utils/URL";
 import { getData } from "@/utils/getData";
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container } from "@mui/material";
+import { Metadata } from "next";
 
 export interface Newses {
     data: Array<News>;
@@ -13,6 +15,7 @@ export type News = {
     attributes: {
         title: string;
         text: string;
+        description: string;
         poster: {
             data: {
                 attributes: {
@@ -20,11 +23,22 @@ export type News = {
                         thumbnail: {
                             url: string;
                         };
+                        small: {
+                            url: string;
+                        };
+                        medium: {
+                            url: string;
+                        };
                     };
                 };
             };
         };
     };
+};
+
+export const metadata: Metadata = {
+    title: "ЭталонGEO | Услуги",
+    description: "Полный список услуг предоставляемых клиентам EtalonGEO",
 };
 
 export default async function Services() {
@@ -36,19 +50,14 @@ export default async function Services() {
         ":desc"
     );
     return (
-        <Container>
-            <Typography
-                variant="h2"
-                component="h2"
-                sx={{
-                    textAlign: "center",
-                    fontWeight: "700",
-                    color: "white",
-                    margin: "45px 0 15px",
-                }}
-            >
-                Новости
-            </Typography>
+        <Container
+            sx={{
+                minHeight: "78vh",
+            }}
+        >
+            <MuiTypoH1 mDesktop="45px 0 15px" color="white">
+                Услуги
+            </MuiTypoH1>
             <Box
                 sx={{
                     display: "flex",
@@ -59,7 +68,7 @@ export default async function Services() {
                 {services.data.map((el: Service) => {
                     return (
                         <ServiceCard
-                            endpoint="blog"
+                            endpoint="services"
                             id={el.id}
                             title={el.attributes.title}
                             description={el.attributes.text}

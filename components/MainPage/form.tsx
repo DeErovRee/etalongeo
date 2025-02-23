@@ -1,74 +1,134 @@
-import { Button, Typography } from "@mui/material";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
+"use client";
 
-export const Form = () => {
+import { Button, Typography, Box } from "@mui/material";
+import TextField from "@mui/material/TextField";
+import { MuiTypoH3 } from "../MuiComponents/MuiTypoH3";
+import { Mailer } from "@/utils/mailer";
+import React, { useState } from "react";
+
+interface Props {
+    headerText?: string;
+    buttonText?: string;
+    theme?: string;
+    message?: string;
+}
+
+export const Form = ({ headerText, buttonText, theme, message }: Props) => {
+    const [error, setError] = useState(false);
+    const [isSend, setIsSend] = useState<Boolean>(false);
+    const SendMail = (e: any) => {
+        e.preventDefault();
+        setError(false);
+
+        const name = e.target[0].value;
+        const email = e.target[2].value;
+        const theme = e.target[4].value;
+        const text = e.target[6].value;
+
+        if (!name && !email && !theme && !text) {
+            setError(true);
+            return;
+        }
+
+        Mailer({ name, email, text, theme }).then(() => {
+            alert(
+                "Ваша заявка зарегестрирована! Если вы верно указали свой email, вам придет письмо о том что заявка зарегестрирована"
+            );
+        });
+        e.target.reset();
+    };
     return (
         <Box
             component="form"
+            id="form"
             sx={{
                 "& .MuiTextField-root": {
                     m: 1,
                     width: "100%",
                     boxSizing: "border-box",
                 },
-                backgroundColor: "white",
                 width: "100%",
-                mt: "75px",
+                backgroundColor: "white",
+                mt: "25px",
                 mb: "30px",
                 p: "10px",
                 borderRadius: "5px",
             }}
-            noValidate
+            noValidate={false}
             autoComplete="off"
+            onSubmit={(e) => SendMail(e)}
         >
-            <div
-                style={{
+            <MuiTypoH3 mDesktop="0 0 10px 0" color="inherit">
+                {headerText}
+            </MuiTypoH3>
+            <Box
+                sx={{
                     display: "flex",
                     flexDirection: "row",
+                    "@media (max-width: 955px)": {
+                        flexDirection: "column",
+                    },
                 }}
             >
                 <TextField
-                    id="outlined-basic"
+                    id="name"
                     label="Ваше имя"
                     variant="outlined"
+                    required={true}
+                    style={{
+                        width: "-webkit-fill-available",
+                    }}
                 />
                 <TextField
-                    id="outlined-basic"
+                    id="email"
                     type="email"
                     label="Ваш email"
                     variant="outlined"
+                    required={true}
+                    style={{
+                        width: "-webkit-fill-available",
+                    }}
                 />
                 <TextField
-                    id="outlined-basic"
+                    id="theme"
                     label="Тема"
                     variant="outlined"
+                    required={true}
+                    value={theme}
+                    style={{
+                        width: "-webkit-fill-available",
+                    }}
                 />
-            </div>
-            <div
-                style={{
+            </Box>
+            <Box
+                sx={{
                     display: "flex",
                 }}
             >
                 <TextField
-                    id="outlined-basic"
+                    id="message"
                     label="Ваше сообщение"
                     variant="outlined"
+                    required={true}
+                    value={message}
                     multiline={true}
                     rows={5}
+                    fullWidth
                 />
-            </div>
-            <Button variant="contained" sx={{ m: "8px", p: "0" }}>
+            </Box>
+
+            <Button type="submit" variant="contained" sx={{ m: "8px", p: "0" }}>
                 <Typography
                     variant="button"
                     sx={{
+                        display: { s: "unset" },
                         m: "13px 35px",
                         textTransform: "uppercase",
                         fontFamily: "inherit",
                         fontSize: "14px",
                     }}
                 >
-                    Отправить
+                    {buttonText}
                 </Typography>
             </Button>
         </Box>

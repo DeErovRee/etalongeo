@@ -1,10 +1,9 @@
-"use server";
-
 import { Card } from "@mui/material";
 import Image from "next/image";
-import { Typography } from "@mui/material";
 import "./style.css";
 import Link from "next/link";
+import { MuiTypoH4 } from "../MuiComponents/MuiTypoH4";
+import ReactMarkdown from "react-markdown";
 
 export const ServiceCard = ({
     title,
@@ -24,6 +23,7 @@ export const ServiceCard = ({
     return (
         <Card
             variant="outlined"
+            className="card"
             sx={{
                 maxWidth: "300px",
                 width: "278px",
@@ -57,51 +57,22 @@ export const ServiceCard = ({
                         margin: "0 0 20px",
                     }}
                 />
-                <Typography
-                    variant="h5"
-                    component="h5"
-                    sx={{
-                        display: { xs: "none", md: "flex" },
-                        textAlign: "center",
-                        fontFamily: "inherit",
-                        fontSize: "17px",
-                        fontWeight: 700,
-                        lineHeight: "25.5px",
-                        color: "black",
-                        textDecoration: "none",
-                        mb: "6.5px",
-                    }}
-                >
+                <MuiTypoH4 mDesktop="0 0 6px" color="black">
                     {title}
-                </Typography>
+                </MuiTypoH4>
                 <hr
                     style={{
                         width: "50%",
                         border: "1px solid #1976d2",
+                        marginBottom: "5px",
                     }}
                 />
-                <Typography
-                    variant="h6"
-                    component="h6"
-                    sx={{
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                        display: { xs: "none", md: "flex" },
-                        textAlign: "center",
-                        fontFamily: "inherit",
-                        fontSize: "14px",
-                        fontWeight: 500,
-                        lineHeight: "21px",
-                        color: "black",
-                        textDecoration: "none",
-                        mt: "20px",
-                    }}
-                >
+                <ReactMarkdown>
                     {description.replace(regexp, "").length > 380
                         ? description.replace(regexp, "").substring(0, 380) +
                           "..."
                         : description.replace(regexp, "")}
-                </Typography>
+                </ReactMarkdown>
             </Link>
         </Card>
     );

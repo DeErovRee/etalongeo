@@ -1,12 +1,13 @@
-import { Container, Typography, Button } from "@mui/material";
-import { ServiceCard } from "./serviceCard";
+import { Container, Button } from "@mui/material";
 import { getData } from "@/utils/getData";
 import { News, Newses } from "@/app/services/page";
 import { LocalhostURL as URL } from "@/utils/URL";
 import Link from "next/link";
+import { MuiTypoH2 } from "../MuiComponents/MuiTypoH2";
+import { NewsCard } from "../Cards/newsCard";
 
 export async function MainSection4() {
-    const news: Newses = await getData("newses", 4, 1, "date", ":desc");
+    const news: Newses = await getData("newses", 6, 1, "date", ":desc");
     return (
         <Container
             maxWidth={false}
@@ -19,40 +20,37 @@ export async function MainSection4() {
                 flexDirection: "column",
             }}
         >
-            <Typography
-                variant="h4"
-                component="h4"
-                sx={{
-                    display: { xs: "none", md: "flex" },
-                    textAlign: "center",
-                    fontFamily: "inherit",
-                    fontSize: "26px",
-                    fontWeight: 700,
-                    lineHeight: "35px",
-                    color: "black",
-                    textDecoration: "none",
-                    m: "45px 0 20px",
-                }}
+            <MuiTypoH2
+                mDesktop="45px 0 20px"
+                mTablet="40px 0 17px"
+                mMobile="35px 0 15px"
+                color="black"
             >
                 Последние новости
-            </Typography>
+            </MuiTypoH2>
             <Container
                 sx={{
                     display: "flex",
                     flexDirection: "row",
+                    flexWrap: "wrap",
+                    justifyContent: "center",
+                    "@media (max-width: 955px)": {
+                        flexWrap: "wrap",
+                    },
                 }}
             >
                 {news.data.map((el: News) => {
                     return (
-                        <ServiceCard
+                        <NewsCard
                             endpoint="blog"
+                            key={el.id}
                             id={el.id}
                             title={el.attributes.title}
-                            description={el.attributes.text}
+                            description={el.attributes.description}
                             img={
                                 URL +
                                 el.attributes.poster.data.attributes.formats
-                                    .thumbnail.url
+                                    .medium.url
                             }
                         />
                     );

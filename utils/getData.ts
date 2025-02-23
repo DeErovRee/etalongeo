@@ -12,7 +12,7 @@ export async function getData(
         `${apiURL}/${endpoint}?pagination[pageSize]=${pageSize}&pagination[page]=${pageCount}&sort=${sortName}${sortDir}&populate=*`,
         {
             next: {
-                revalidate: 60,
+                revalidate: 10,
             },
         }
     );

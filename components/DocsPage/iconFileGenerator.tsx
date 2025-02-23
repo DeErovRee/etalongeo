@@ -1,4 +1,4 @@
-import { Box, Button } from "@mui/material";
+import { Box } from "@mui/material";
 import Image from "next/image";
 import doc from "@/public/free-icon-doc-201088.png";
 import xls from "@/public/free-icon-xls-201198.png";
@@ -31,19 +31,19 @@ export const IconFile: React.FC<Props> = ({ ext, title, url }) => {
 
     switch (ext) {
         case ".pdf":
-            backgroundColor = "rgb(223,30,36)";
+            backgroundColor = "rgb(232 43 49 / 67%)";
             break;
         case ".xls":
         case ".xlsx":
-            backgroundColor = "rgb(15,120,62)";
+            backgroundColor = "rgb(49 160 73 / 68%)";
             break;
         case ".doc":
         case ".docx":
-            backgroundColor = "rgb(24,90,189)";
+            backgroundColor = "rgb(24 90 189 / 65%)";
             break;
         case ".ppt":
         case ".pptx":
-            backgroundColor = "rgb(191,57,26)";
+            backgroundColor = "rgb(226 119 27 / 68%)";
             break;
     }
 

@@ -1,14 +1,17 @@
-import { LocalhostAPIurl as apiURL } from "@/utils/URL";
 import { Container } from "@mui/material";
+import { getDataPost } from "@/utils/getDataEntry";
+import ReactMarkdown from "react-markdown";
+import styles from "@/app/markdown-styles.module.css";
+import { BackButton } from "@/components/backButton";
+import { MuiTypoH1 } from "@/components/MuiComponents/MuiTypoH1";
+import { MuiTypoBody } from "@/components/MuiComponents/MuiTypoBody";
 
-async function getData(id: string) {
-    const res = await fetch(`${apiURL}/newses/${id}`, {
-        next: {
-            revalidate: 600,
-        },
-    });
+export async function generateMetadata({ params: { id } }: Props) {
+    const post = await getDataPost(id, "newses");
 
-    return res.json();
+    return {
+        title: post.data.attributes.title,
+    };
 }
 
 type Props = {
@@ -18,23 +21,31 @@ type Props = {
 };
 
 export default async function Post({ params: { id } }: Props) {
-    const post = await getData(id);
+    const post = await getDataPost(id, "newses");
+
     return (
         <Container
             maxWidth={false}
             sx={{
-                height: "100%",
+                minHeight: "78vh",
                 backgroundColor: "white",
             }}
         >
-            <Container>
-                <h1 style={{ padding: "25px 0 0" }}>
+            <Container
+                sx={{
+                    margin: "25px auto",
+                }}
+            >
+                <BackButton backTo="Все новости" url="/blog" />
+                <MuiTypoH1 mDesktop="10px 0 0 0">
                     {post.data.attributes.title}
-                </h1>
-                <p style={{ margin: "10px 0 10px" }}>
+                </MuiTypoH1>
+                <MuiTypoBody mDesktop="10px 0 10px">
                     Опубликовано: <i>{post.data.attributes.date}</i>
-                </p>
-                <p>{post.data.attributes.text}</p>
+                </MuiTypoBody>
+                <ReactMarkdown className={styles.reactMarkDown}>
+                    {post.data.attributes.text}
+                </ReactMarkdown>
             </Container>
         </Container>
     );

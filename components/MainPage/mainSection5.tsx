@@ -1,5 +1,9 @@
-import { Container, Typography } from "@mui/material";
+import { Container } from "@mui/material";
 import { Form } from "./form";
+import { MuiTypoH2 } from "../MuiComponents/MuiTypoH2";
+import { MuiTypoH4 } from "../MuiComponents/MuiTypoH4";
+import Image from "next/image";
+import bgImage from "@/public/bg1.jpg";
 
 export const MainSection5 = () => {
     return (
@@ -8,46 +12,24 @@ export const MainSection5 = () => {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
+                position: "relative",
             }}
             id="form"
         >
-            <Typography
-                variant="h4"
-                component="h4"
-                sx={{
-                    display: { xs: "none", md: "flex" },
-                    textAlign: "center",
-                    fontFamily: "inherit",
-                    fontSize: "45px",
-                    fontWeight: 700,
-                    lineHeight: "40px",
-                    color: "white",
-                    textDecoration: "none",
-                    m: "115px 0 0",
-                }}
+            <MuiTypoH2
+                mDesktop="115px 0 0"
+                mMobile="90px 0 0"
+                mTablet="85px 0 0"
+                color="white"
             >
                 Контактная информация
-            </Typography>
-            <Typography
-                variant="h4"
-                component="h4"
-                sx={{
-                    display: { xs: "none", md: "flex" },
-                    textAlign: "center",
-                    fontFamily: "inherit",
-                    fontSize: "16px",
-                    fontWeight: 700,
-                    lineHeight: "24px",
-                    color: "white",
-                    textDecoration: "none",
-                    m: "10px 0 0",
-                }}
-            >
+            </MuiTypoH2>
+            <MuiTypoH4 mDesktop="10px 0 0" color="white">
                 Заполняя формы обратной связи на сайте etalongeo.ru, Вы даете
                 свое согласие на обработку персональных данных в соответствии с
                 ФЗ №152 - ФЗ "О персональных данных".
-            </Typography>
-            <Form />
+            </MuiTypoH4>
+            <Form buttonText="Отправить" />
         </Container>
     );
 };

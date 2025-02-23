@@ -1,8 +1,10 @@
-import { Container, Typography, Button } from "@mui/material";
-import { ServiceCard } from "./serviceCard";
+import { Container, Button } from "@mui/material";
+import { ServiceCard } from "../Cards/serviceCard";
 import { getData } from "@/utils/getData";
 import { LocalhostURL as URL } from "@/utils/URL";
 import Link from "next/link";
+import { MuiTypoH2 } from "../MuiComponents/MuiTypoH2";
+import { MuiTypoH3 } from "../MuiComponents/MuiTypoH3";
 
 export interface Services {
     data: Array<Service>;
@@ -13,6 +15,7 @@ export type Service = {
     attributes: {
         title: string;
         text: string;
+        description: string;
         poster: {
             data: {
                 attributes: {
@@ -56,76 +59,62 @@ export const MainSection2 = async () => {
                     alignItems: "center",
                 }}
             >
-                <Typography
-                    id="services"
-                    variant="h2"
-                    component="h2"
-                    sx={{
-                        m: "115px 0 10px",
-                        display: { xs: "none", md: "flex" },
-                        textAlign: "center",
-                        fontFamily: "inherit",
-                        fontSize: "45px",
-                        fontWeight: 700,
-                        lineHeight: "40px",
-                        color: "black",
-                        textDecoration: "none",
-                    }}
+                <MuiTypoH2
+                    mDesktop="115px 0 10px"
+                    mTablet="100px 0 10px"
+                    mMobile="90px 0 10px"
+                    color="black"
                 >
-                    Популярный услуги
-                </Typography>
-                <Typography
-                    variant="h5"
-                    component="h5"
-                    sx={{
-                        display: { xs: "none", md: "flex" },
-                        textAlign: "center",
-                        fontFamily: "inherit",
-                        fontSize: "16px",
-                        fontWeight: 700,
-                        lineHeight: "24px",
-                        color: "black",
-                        textDecoration: "none",
-                        mb: "70px",
-                    }}
+                    Популярные услуги
+                </MuiTypoH2>
+                <MuiTypoH3
+                    mDesktop="0 0 70px"
+                    mTablet="0 0 60px"
+                    mMobile="0 0 50px"
+                    color="black"
                 >
                     Мы предлагаем полный спектр услуг по кадастровым работам
-                </Typography>
+                </MuiTypoH3>
             </Container>
-            <Container sx={{ display: "flex", flexDirection: "row" }}>
+            <Container
+                sx={{
+                    display: "flex",
+                    flexDirection: "row",
+                    flexWrap: "nowrap",
+                    justifyContent: "center",
+                    "@media (max-width: 955px)": {
+                        flexWrap: "wrap",
+                    },
+                }}
+            >
                 {services.data.map((el: Service) => {
                     return (
                         <ServiceCard
                             key={el.id}
                             endpoint="services"
                             title={el.attributes.title}
-                            description={el.attributes.text}
+                            description={el.attributes.description}
                             img={
                                 URL +
                                 el.attributes.poster.data.attributes.formats
                                     .thumbnail.url
                             }
-                            id={2}
+                            id={el.id}
                         />
                     );
                 })}
             </Container>
-            <Button
-                variant="contained"
-                sx={{
-                    mb: "117px",
+
+            <Link
+                href={"./services"}
+                style={{
+                    textDecoration: "none",
+                    color: "inherit",
+                    marginBottom: "117px",
                 }}
             >
-                <Link
-                    href={"./services"}
-                    style={{
-                        textDecoration: "none",
-                        color: "inherit",
-                    }}
-                >
-                    Все услуги
-                </Link>
-            </Button>
+                <Button variant="contained">Все услуги</Button>
+            </Link>
         </Container>
     );
 };

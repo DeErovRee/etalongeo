@@ -1,4 +1,7 @@
-import { Service, Services } from "@/components/MainPage/mainSection2";
+import {
+    Service,
+    Services as ServicesComponents,
+} from "@/components/MainPage/mainSection2";
 import { ServiceCard } from "@/components/Cards/serviceCard";
 import { MuiTypoH1 } from "@/components/MuiComponents/MuiTypoH1";
 import { LocalhostURL as URL } from "@/utils/URL";
@@ -7,7 +10,7 @@ import { Box, Container } from "@mui/material";
 import { Metadata } from "next";
 
 export interface Newses {
-    data: Array<News>;
+    data: Array<News> | [];
 }
 
 export type News = {
@@ -42,7 +45,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Services() {
-    const services: Services = await getData(
+    const services: ServicesComponents | null = await getData(
         "services",
         10,
         1,
@@ -50,37 +53,39 @@ export default async function Services() {
         ":desc"
     );
     return (
-        <Container
-            sx={{
-                minHeight: "78vh",
-            }}
-        >
-            <MuiTypoH1 mDesktop="45px 0 15px" color="white">
-                Услуги
-            </MuiTypoH1>
-            <Box
+        services && (
+            <Container
                 sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    flexWrap: "wrap",
+                    minHeight: "78vh",
                 }}
             >
-                {services.data.map((el: Service) => {
-                    return (
-                        <ServiceCard
-                            endpoint="services"
-                            id={el.id}
-                            title={el.attributes.title}
-                            description={el.attributes.text}
-                            img={
-                                URL +
-                                el.attributes.poster.data.attributes.formats
-                                    .thumbnail.url
-                            }
-                        />
-                    );
-                })}
-            </Box>
-        </Container>
+                <MuiTypoH1 mDesktop="45px 0 15px" color="white">
+                    Услуги
+                </MuiTypoH1>
+                <Box
+                    sx={{
+                        display: "flex",
+                        justifyContent: "center",
+                        flexWrap: "wrap",
+                    }}
+                >
+                    {services.data?.map((el: Service) => {
+                        return (
+                            <ServiceCard
+                                endpoint="services"
+                                id={el.id}
+                                title={el.attributes.title}
+                                description={el.attributes.text}
+                                img={
+                                    URL +
+                                    el.attributes.poster.data.attributes.formats
+                                        .thumbnail.url
+                                }
+                            />
+                        );
+                    })}
+                </Box>
+            </Container>
+        )
     );
 }

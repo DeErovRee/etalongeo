@@ -7,15 +7,19 @@ export async function getData(
     pageCount: number,
     sortName: string,
     sortDir: string
-): Promise<Newses> {
-    const res = await fetch(
-        `${apiURL}/${endpoint}?pagination[pageSize]=${pageSize}&pagination[page]=${pageCount}&sort=${sortName}${sortDir}&populate=*`,
-        {
-            next: {
-                revalidate: 10,
-            },
-        }
-    );
+): Promise<Newses | null> {
+    try {
+        const res = await fetch(
+            `${apiURL}/${endpoint}?pagination[pageSize]=${pageSize}&pagination[page]=${pageCount}&sort=${sortName}${sortDir}&populate=*`,
+            {
+                next: {
+                    revalidate: 10,
+                },
+            }
+        );
 
-    return res.json();
+        return res.json();
+    } catch (e) {
+        return null;
+    }
 }

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Blog() {
-    const news: Newses = await getData("newses", 10, 1, "date", ":desc");
+    const news: Newses | null = await getData("newses", 10, 1, "date", ":desc");
     return (
         <Container>
             <MuiTypoH1 mDesktop="45px 0 15px" color="white">
@@ -25,7 +25,7 @@ export default async function Blog() {
                     flexWrap: "wrap",
                 }}
             >
-                {news.data.map((el: News) => {
+                {news?.data.map((el: News) => {
                     return (
                         <NewsCard
                             key={el.id}

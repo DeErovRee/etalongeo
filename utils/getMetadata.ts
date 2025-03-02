@@ -23,8 +23,13 @@ interface SEO {
     };
 }
 
-export async function GetMetadata(): Promise<SEO> {
-    const res = await fetch(`${URL}/seo?populate=openGraph`);
+export async function GetMetadata(): Promise<SEO | null> {
+    try {
+        const res = await fetch(`${URL}/seo?populate=openGraph`);
 
-    return res.json();
+        return res.json();
+    } catch (e: any) {
+        console.log(e.message);
+        return null;
+    }
 }

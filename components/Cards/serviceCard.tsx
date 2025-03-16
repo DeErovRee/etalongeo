@@ -6,15 +6,13 @@ import { MuiTypoH4 } from "../MuiComponents/MuiTypoH4";
 import ReactMarkdown from "react-markdown";
 
 export const ServiceCard = ({
-    title,
+    name,
     description,
-    img,
     id,
     endpoint,
 }: {
-    title: string;
+    name: string;
     description: string;
-    img: string;
     id: number;
     endpoint: string;
 }) => {
@@ -44,21 +42,8 @@ export const ServiceCard = ({
                     alignItems: "center",
                 }}
             >
-                <Image
-                    src={img}
-                    className="image"
-                    alt="Sattelite Photo"
-                    width={100}
-                    height={100}
-                    quality={100}
-                    style={{
-                        objectFit: "cover",
-                        borderRadius: "50%",
-                        margin: "0 0 20px",
-                    }}
-                />
                 <MuiTypoH4 mDesktop="0 0 6px" color="black">
-                    {title}
+                    {name}
                 </MuiTypoH4>
                 <hr
                     style={{

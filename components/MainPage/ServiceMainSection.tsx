@@ -1,43 +1,12 @@
 import { Container, Button } from "@mui/material";
 import { ServiceCard } from "../Cards/serviceCard";
-import { getData } from "@/utils/getData";
-import { LocalhostURL as URL } from "@/utils/URL";
 import Link from "next/link";
 import { MuiTypoH2 } from "../MuiComponents/MuiTypoH2";
 import { MuiTypoH3 } from "../MuiComponents/MuiTypoH3";
+import { getServices } from "@/query/services/getServices";
 
-export interface Services {
-    data?: Array<Service> | [];
-}
-
-export type Service = {
-    id: number;
-    attributes: {
-        title: string;
-        text: string;
-        description: string;
-        poster: {
-            data: {
-                attributes: {
-                    formats: {
-                        thumbnail: {
-                            url: string;
-                        };
-                    };
-                };
-            };
-        };
-    };
-};
-
-export const MainSection2 = async () => {
-    const services: Services | null = await getData(
-        "services",
-        4,
-        1,
-        "title",
-        ":desc"
-    );
+export const ServiceMainSection = async () => {
+    const services = await getServices({});
 
     return (
         services && (
@@ -88,19 +57,14 @@ export const MainSection2 = async () => {
                         },
                     }}
                 >
-                    {services.data?.map((el: Service) => {
+                    {services?.map(({ id, name, description }) => {
                         return (
                             <ServiceCard
-                                key={el.id}
-                                endpoint="services"
-                                title={el.attributes.title}
-                                description={el.attributes.description}
-                                img={
-                                    URL +
-                                    el.attributes.poster.data.attributes.formats
-                                        .thumbnail.url
-                                }
-                                id={el.id}
+                                key={id}
+                                endpoint="blog"
+                                id={id}
+                                name={name}
+                                description={description}
                             />
                         );
                     })}

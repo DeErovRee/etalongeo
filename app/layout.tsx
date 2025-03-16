@@ -7,7 +7,7 @@ import bgImage from "../public/bg1.jpg";
 import { Footer } from "@/components/footer";
 import Script from "next/script";
 import { LocalhostURL as URL } from "@/utils/URL";
-import { GetMetadata } from "@/utils/getMetadata";
+// import { GetMetadata } from "@/utils/getMetadata";
 import Head from "next/head";
 import { YandexMetrikaInit } from "@/components/YandexMetrika/YandexMetrika";
 import { Suspense } from "react";
@@ -15,28 +15,30 @@ import { Suspense } from "react";
 const inter = Montserrat({ subsets: ["latin"] });
 
 export async function generateMetadata() {
-    const SEO = (await GetMetadata())?.data.attributes;
+    const SEO: any = {}; // const SEO = (await GetMetadata())?.data.attributes;
 
-    return SEO
-        ? {
-              metadataBase: `${URL}`,
-              title: `${SEO.title}`,
-              icons: `${SEO.icons}`,
-              description: `${SEO.description}`,
-              category: `${SEO.category}`,
-              openGraph: {
-                  type: `${SEO.openGraph.type}`,
-                  url: `${SEO.openGraph.url}`,
-                  title: `${SEO.openGraph.title}`,
-                  description: `${SEO.openGraph.description}`,
-                  siteName: `${SEO.openGraph.siteName}`,
-                  locale: `${SEO.openGraph.locale}`,
-              },
-              creator: "Денис Нестеров",
-              publisher: `${SEO.publisher}`,
-              keywords: `${SEO.keywords}`,
-          }
-        : {};
+    if (!Object.keys(SEO)?.length) {
+        return {};
+    }
+
+    return {
+        metadataBase: `${URL}`,
+        title: `${SEO.title}`,
+        icons: `${SEO.icons}`,
+        description: `${SEO.description}`,
+        category: `${SEO.category}`,
+        openGraph: {
+            type: `${SEO.openGraph.type}`,
+            url: `${SEO.openGraph.url}`,
+            title: `${SEO.openGraph.title}`,
+            description: `${SEO.openGraph.description}`,
+            siteName: `${SEO.openGraph.siteName}`,
+            locale: `${SEO.openGraph.locale}`,
+        },
+        creator: "Денис Нестеров",
+        publisher: `${SEO.publisher}`,
+        keywords: `${SEO.keywords}`,
+    };
 }
 
 export default function RootLayout({

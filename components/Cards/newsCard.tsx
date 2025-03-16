@@ -1,19 +1,16 @@
-import { Card, Box } from "@mui/material";
-import Image from "next/image";
+import { Card, Box, Typography } from "@mui/material";
 import "./style.css";
 import Link from "next/link";
 import { MuiTypoH3 } from "../MuiComponents/MuiTypoH3";
 
 export const NewsCard = ({
     title,
-    description,
-    img,
+    content,
     id,
     endpoint,
 }: {
     title: string;
-    description: string;
-    img: string;
+    content: string;
     id: number;
     endpoint: string;
 }) => {
@@ -44,35 +41,6 @@ export const NewsCard = ({
                 }}
             >
                 <Box
-                    className="imageBox"
-                    style={{
-                        height: "100%",
-                        width: "100%",
-                        minWidth: "200px",
-                        margin: "0 0 -4px 0",
-                        // filter: "blur(5px)",
-                    }}
-                >
-                    <Box
-                        sx={{
-                            filter: "brightness(0.8)",
-                        }}
-                    >
-                        <Image
-                            src={img}
-                            alt="Sattelite Photo"
-                            width={368}
-                            height={198}
-                            quality={100}
-                            style={{
-                                width: "100%",
-                                objectFit: "cover",
-                                margin: "-2px 0 0 0",
-                            }}
-                        />
-                    </Box>
-                </Box>
-                <Box
                     className="textBox"
                     sx={{
                         display: "flex",
@@ -84,23 +52,13 @@ export const NewsCard = ({
                         width: "100%",
                         height: "100%",
                         padding: "10px",
-                        "& p": {
-                            color: "white",
-                        },
-                        "& h4": {
-                            color: "white",
-                        },
                     }}
                 >
-                    <MuiTypoH3
-                        mDesktop="0 0 6px"
-                        color="white"
-                        alignText="center"
-                    >
+                    <MuiTypoH3 mDesktop="0 0 6px" alignText="center">
                         {title}
                     </MuiTypoH3>
                     <hr />
-                    {/* <MuiTypoH5 color="white">{description}</MuiTypoH5> */}
+                    <Typography>{content}</Typography>
                 </Box>
             </Link>
         </Card>

@@ -1,43 +1,8 @@
-import {
-    Service,
-    Services as ServicesComponents,
-} from "@/components/MainPage/mainSection2";
 import { ServiceCard } from "@/components/Cards/serviceCard";
 import { MuiTypoH1 } from "@/components/MuiComponents/MuiTypoH1";
-import { LocalhostURL as URL } from "@/utils/URL";
-import { getData } from "@/utils/getData";
 import { Box, Container } from "@mui/material";
 import { Metadata } from "next";
-
-export interface Newses {
-    data: Array<News> | [];
-}
-
-export type News = {
-    id: number;
-    attributes: {
-        title: string;
-        text: string;
-        description: string;
-        poster: {
-            data: {
-                attributes: {
-                    formats: {
-                        thumbnail: {
-                            url: string;
-                        };
-                        small: {
-                            url: string;
-                        };
-                        medium: {
-                            url: string;
-                        };
-                    };
-                };
-            };
-        };
-    };
-};
+import { getServices } from "@/query/services/getServices";
 
 export const metadata: Metadata = {
     title: "ЭталонGEO | Услуги",
@@ -45,13 +10,8 @@ export const metadata: Metadata = {
 };
 
 export default async function Services() {
-    const services: ServicesComponents | null = await getData(
-        "services",
-        10,
-        1,
-        "title",
-        ":desc"
-    );
+    const services = await getServices({});
+
     return (
         services && (
             <Container
@@ -69,21 +29,18 @@ export default async function Services() {
                         flexWrap: "wrap",
                     }}
                 >
-                    {services.data?.map((el: Service) => {
-                        return (
-                            <ServiceCard
-                                endpoint="services"
-                                id={el.id}
-                                title={el.attributes.title}
-                                description={el.attributes.text}
-                                img={
-                                    URL +
-                                    el.attributes.poster.data.attributes.formats
-                                        .thumbnail.url
-                                }
-                            />
-                        );
-                    })}
+                    {services &&
+                        services.map(({ id, name, description }) => {
+                            return (
+                                <ServiceCard
+                                    key={id}
+                                    endpoint="blog"
+                                    id={id}
+                                    name={name}
+                                    description={description}
+                                />
+                            );
+                        })}
                 </Box>
             </Container>
         )

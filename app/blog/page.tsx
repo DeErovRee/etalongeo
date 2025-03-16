@@ -1,10 +1,8 @@
-import { getData } from "@/utils/getData";
 import { Box, Container } from "@mui/material";
-import { News, Newses } from "../services/page";
-import { LocalhostURL as URL } from "@/utils/URL";
 import { Metadata } from "next";
 import { MuiTypoH1 } from "@/components/MuiComponents/MuiTypoH1";
 import { NewsCard } from "@/components/Cards/newsCard";
+import { getPosts } from "@/query/posts/getPosts";
 
 export const metadata: Metadata = {
     title: "ЭталонGEO | Блог",
@@ -12,7 +10,8 @@ export const metadata: Metadata = {
 };
 
 export default async function Blog() {
-    const news: Newses | null = await getData("newses", 10, 1, "date", ":desc");
+    const posts = await getPosts({});
+
     return (
         <Container>
             <MuiTypoH1 mDesktop="45px 0 15px" color="white">
@@ -25,22 +24,18 @@ export default async function Blog() {
                     flexWrap: "wrap",
                 }}
             >
-                {news?.data.map((el: News) => {
-                    return (
-                        <NewsCard
-                            key={el.id}
-                            endpoint="blog"
-                            id={el.id}
-                            title={el.attributes.title}
-                            description={el.attributes.description}
-                            img={
-                                URL +
-                                el.attributes.poster.data.attributes.formats
-                                    .medium.url
-                            }
-                        />
-                    );
-                })}
+                {posts &&
+                    posts.map(({ id, title, content }) => {
+                        return (
+                            <NewsCard
+                                key={id}
+                                endpoint="blog"
+                                id={id}
+                                title={title}
+                                content={content}
+                            />
+                        );
+                    })}
             </Box>
         </Container>
     );

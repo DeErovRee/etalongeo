@@ -1,15 +1,14 @@
 import { Container, Button } from "@mui/material";
-import { getData } from "@/utils/getData";
-import { News, Newses } from "@/app/services/page";
-import { LocalhostURL as URL } from "@/utils/URL";
 import Link from "next/link";
 import { MuiTypoH2 } from "../MuiComponents/MuiTypoH2";
 import { NewsCard } from "../Cards/newsCard";
+import { getPosts } from "@/query/posts/getPosts";
 
-export async function MainSection4() {
-    const news: Newses | null = await getData("newses", 6, 1, "date", ":desc");
+export async function PostMainSection() {
+    const posts = await getPosts({});
+
     return (
-        news && (
+        posts && (
             <Container
                 maxWidth={false}
                 sx={{
@@ -40,19 +39,14 @@ export async function MainSection4() {
                         },
                     }}
                 >
-                    {news?.data.map((el: News) => {
+                    {posts?.map(({ id, title, content }) => {
                         return (
                             <NewsCard
                                 endpoint="blog"
-                                key={el.id}
-                                id={el.id}
-                                title={el.attributes.title}
-                                description={el.attributes.description}
-                                img={
-                                    URL +
-                                    el.attributes.poster.data.attributes.formats
-                                        .medium.url
-                                }
+                                key={id}
+                                id={id}
+                                title={title}
+                                content={content}
                             />
                         );
                     })}

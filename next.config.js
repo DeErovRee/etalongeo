@@ -13,9 +13,6 @@ const nextConfig = {
             "etalongeo-app.ru",
         ],
     },
-    experimental: {
-        serverActions: true,
-    },
 };
 
 module.exports = nextConfig;

@@ -27,7 +27,7 @@ export const FeedbackMainSection = () => {
                 свое согласие на обработку персональных данных в соответствии с
                 ФЗ №152 - ФЗ "О персональных данных".
             </MuiTypoH4>
-            <Form buttonText="Отправить" />
+            <Form />
         </Container>
     );
 };

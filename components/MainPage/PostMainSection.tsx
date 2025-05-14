@@ -2,7 +2,7 @@ import { Container, Button } from "@mui/material";
 import Link from "next/link";
 import { MuiTypoH2 } from "../MuiComponents/MuiTypoH2";
 import { NewsCard } from "../Cards/newsCard";
-import { getPosts } from "@/query/posts/getPosts";
+import { getPosts } from "@/api/posts/getPosts";
 
 export async function PostMainSection() {
     const posts = await getPosts({});

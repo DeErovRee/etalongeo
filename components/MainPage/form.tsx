@@ -128,7 +128,7 @@ export const Form = ({ headerText, buttonText, theme, message }: Props) => {
                         fontSize: "14px",
                     }}
                 >
-                    {buttonText}
+                    Отправить
                 </Typography>
             </Button>
         </Box>

@@ -12,6 +12,12 @@ export type ServicesQuery = {
     options?: Options;
 };
 
+export type CreateBody = {
+    title: string;
+    content: string;
+    price: number;
+};
+
 type Filter = {};
 
 type Options = {

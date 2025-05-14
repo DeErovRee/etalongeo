@@ -2,7 +2,7 @@ import { Box, Container } from "@mui/material";
 import { Metadata } from "next";
 import { MuiTypoH1 } from "@/components/MuiComponents/MuiTypoH1";
 import { NewsCard } from "@/components/Cards/newsCard";
-import { getPosts } from "@/query/posts/getPosts";
+import { getPosts } from "@/api/posts/getPosts";
 
 export const metadata: Metadata = {
     title: "ЭталонGEO | Блог",

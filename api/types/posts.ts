@@ -12,6 +12,11 @@ export type PostsQuery = {
     options?: Options;
 };
 
+export type CreateBody = {
+    title: string;
+    content: string;
+};
+
 type Filter = {};
 
 type Options = {

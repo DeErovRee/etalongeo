@@ -5,7 +5,7 @@ export async function getPosts({
     options,
 }: PostsQuery): Promise<Posts | null> {
     try {
-        const res = await fetch(`http://localhost:3000/api/posts`, {
+        const res = await fetch(`http://195.133.73.116:3000/api/posts`, {
             next: {
                 revalidate: 10,
             },

@@ -1,8 +1,8 @@
+import { getServices } from "@/api/services/getServices";
 import { ServiceCard } from "@/components/Cards/serviceCard";
 import { MuiTypoH1 } from "@/components/MuiComponents/MuiTypoH1";
 import { Box, Container } from "@mui/material";
 import { Metadata } from "next";
-import { getServices } from "@/query/services/getServices";
 
 export const metadata: Metadata = {
     title: "ЭталонGEO | Услуги",

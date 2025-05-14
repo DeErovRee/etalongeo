@@ -5,7 +5,7 @@ export async function getServices({
     options,
 }: ServicesQuery): Promise<Services | null> {
     try {
-        const res = await fetch(`http://localhost:3000/api/services`, {
+        const res = await fetch(`http://195.133.73.116:3000/api/services`, {
             next: {
                 revalidate: 10,
             },

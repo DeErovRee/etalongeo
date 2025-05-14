@@ -3,7 +3,7 @@ import { ServiceCard } from "../Cards/serviceCard";
 import Link from "next/link";
 import { MuiTypoH2 } from "../MuiComponents/MuiTypoH2";
 import { MuiTypoH3 } from "../MuiComponents/MuiTypoH3";
-import { getServices } from "@/query/services/getServices";
+import { getServices } from "@/api/services/getServices";
 
 export const ServiceMainSection = async () => {
     const services = await getServices({});

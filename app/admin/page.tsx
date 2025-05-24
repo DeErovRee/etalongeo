@@ -1,8 +1,14 @@
-import EditorForm from "@/components/MainPage/editorForm";
-import { MuiTypoH1 } from "@/components/MuiComponents/MuiTypoH1";
+"use client";
+
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+
 import { Box, Container } from "@mui/material";
 
-export default async function Blog() {
+import EditorForm from "@/components/MainPage/editorForm";
+import { MuiTypoH1 } from "@/components/MuiComponents/MuiTypoH1";
+
+export default function Admin() {
     return (
         <Container>
             <MuiTypoH1 mDesktop="45px 0 15px" color="white">

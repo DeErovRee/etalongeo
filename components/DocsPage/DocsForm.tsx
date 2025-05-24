@@ -34,7 +34,6 @@ export const DocsForm = () => {
                     }
                 });
         } catch (error) {
-            console.log("123123123");
             setError(true);
         }
     };

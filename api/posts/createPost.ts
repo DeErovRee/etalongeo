@@ -5,7 +5,8 @@ export async function createPost({
     content,
 }: CreateBody): Promise<Posts | null> {
     try {
-        const res = await fetch(`http://195.133.73.116:3000/api/posts/create`, {
+        // Доделать, передавать данные для создания
+        const res = await fetch(`http://195.133.73.116:3000/api/posts/`, {
             next: {
                 revalidate: 10,
             },
